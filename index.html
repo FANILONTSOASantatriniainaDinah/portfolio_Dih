@@ -1,11 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=h1h, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinah Fanilontsoa | Geo-Interface v4</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-    <h1>Portfolio Dinah CMW</h1>
+<body data-theme="dark">
+
+    <div id="geo-grid"></div>
+    <div class="scanner-line"></div>
+    <div id="toast">SYSTEM_UPDATE_SUCCESS</div>
+
+    <!-- HUD ELEMENTS -->
+    <div class="hud hud-tl">
+        <div id="sys-title">SYSTEM_STATUS: ONLINE</div>
+        <div style="color: var(--secondary); font-weight: bold; font-size: 0.6rem;">DINAH_FANILONTSOA // M2_ENSG</div>
+    </div>
+
+    <div class="hud hud-tr">
+        <button class="btn-ui" onclick="toggleTheme()" id="btn-theme">MODE: LIGHT</button>
+        <button class="btn-ui" onclick="switchLang()" id="btn-lang">ENGLISH</button>
+    </div>
+
+    <div class="hud hud-bl">
+        <div id="sys-coord">COORD: <span id="lat">48.8410</span>, <span id="lon">2.5870</span></div>
+    </div>
+
+    <div class="hud hud-bottom-right">
+        <div id="txt-footer">© 2025 GEOMATICS INTERFACE</div>
+    </div>
+
+    <main id="map-canvas"></main>
+
+    <aside id="side-panel">
+        <div id="panel-content"></div>
+    </aside>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
