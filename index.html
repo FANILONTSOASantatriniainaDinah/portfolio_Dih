@@ -2,41 +2,25 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinah Fanilontsoa | Geo-Interface v4</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;800&display=swap" rel="stylesheet">
+    <title>Mon Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body data-theme="dark">
+<body>
 
-    <div id="geo-grid"></div>
-    <div class="scanner-line"></div>
-    <div id="toast">SYSTEM_UPDATE_SUCCESS</div>
+    <nav>
+        <button id="btn-translate">English</button>
+    </nav>
 
-    <!-- HUD ELEMENTS -->
-    <div class="hud hud-tl">
-        <div id="sys-title">SYSTEM_STATUS: ONLINE</div>
-        <div style="color: var(--secondary); font-weight: bold; font-size: 0.6rem;">DINAH_FANILONTSOA // M2_ENSG</div>
-    </div>
+    <header>
+        <h1 id="titre">Bienvenue sur mon portfolio</h1>
+        <p id="description">Je suis un développeur passionné par le code.</p>
+    </header>
 
-    <div class="hud hud-tr">
-        <button class="btn-ui" onclick="toggleTheme()" id="btn-theme">MODE: LIGHT</button>
-        <button class="btn-ui" onclick="switchLang()" id="btn-lang">ENGLISH</button>
-    </div>
+    <section>
+        <h2 id="projet-titre">Mes Projets</h2>
+        <p id="projet-texte">Découvrez mes dernières réalisations ci-dessous.</p>
+    </section>
 
-    <div class="hud hud-bl">
-        <div id="sys-coord">COORD: <span id="lat">48.8410</span>, <span id="lon">2.5870</span></div>
-    </div>
-
-    <div class="hud hud-bottom-right">
-        <div id="txt-footer">© 2025 GEOMATICS INTERFACE</div>
-    </div>
-
-    <main id="map-canvas"></main>
-
-    <aside id="side-panel">
-        <div id="panel-content"></div>
-    </aside>
-<script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
