@@ -1,4 +1,3 @@
-// 1. Définition des contenus
 const traductions = {
     fr: {
         titre: "Bienvenue sur mon portfolio",
@@ -19,24 +18,54 @@ const traductions = {
 let langueActuelle = 'fr';
 const bouton = document.querySelector("#btn-translate");
 
-// 2. Fonction de traduction
 function traduire() {
-    // On bascule la langue
     langueActuelle = (langueActuelle === 'fr') ? 'en' : 'fr';
-    
     const dictionnaire = traductions[langueActuelle];
 
-    // On parcourt les clés de l'objet (qui sont nos IDs HTML)
     Object.keys(dictionnaire).forEach(function(cle) {
         const element = document.querySelector("#" + cle);
         if (element) {
             element.innerHTML = dictionnaire[cle];
         }
     });
-
-    // On change aussi le texte du bouton
     bouton.innerHTML = dictionnaire.btn;
 }
 
-// 3. Écouteur d'événement
 bouton.addEventListener("click", traduire);
+
+
+// --- AJOUT DE LA PARTIE TP VIDEO ---
+
+const v1 = document.querySelector("#v1");
+//const v2 = document.querySelector("#v2");
+const btnPlay = document.querySelector("#play");
+const masque = document.querySelector("#mask");
+
+// Q3: Lancer les deux vidéos au clic 
+btnPlay.addEventListener("click", function() {
+    v1.play();
+   //v2.play();
+});
+
+// Q4: Effet de fondu au blanc 
+v1.addEventListener("play", function() {
+    if (v1.currentTime < 1) {
+        let opacite = 1;
+        let videoTimer = setInterval(function() {
+            opacite -= 0.05; 
+            masque.style.opacity = opacite;
+
+            if (opacite <= 0) {
+                clearInterval(videoTimer);
+                masque.style.display = "none";
+            }
+        }, 50); // Changement toutes les 50ms [cite: 24]
+    }
+});
+
+// Q6: Affichage console du temps écoulé 
+setInterval(function() {
+    if (!v1.paused) {
+        console.log("Temps écoulé : " + v1.currentTime.toFixed(2));
+    }
+}, 50);
