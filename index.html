@@ -1,234 +1,138 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dinah Fanilontsoa — Développeuse &amp; Géomaticienne Cartographe</title>
-  <meta name="description" content="Portfolio de FANILONTSOA Santatriniaina Dinah, développeuse et géomaticienne cartographe. Découvrez un parcours entre Madagascar, la France, la Corée du Sud et La Réunion à travers des projets cartographiques et de développement web.">
-  <meta name="author" content="FANILONTSOA Santatriniaina Dinah">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dinah Fanilontsoa — Développeuse &amp; Géomaticienne Cartographe</title>
+<meta name="description" content="Portfolio de FANILONTSOA Santatriniaina Dinah, développeuse et géomaticienne cartographe.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="alternate icon" href="assets/images/favicon.png">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Dinah Fanilontsoa — Développeuse & Géomaticienne Cartographe">
-  <meta property="og:description" content="Un parcours cartographié entre Madagascar, France, Corée du Sud et La Réunion.">
-  <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
-  <!-- Polices : Caveat (signature), Fraunces (titres), Space Grotesk (texte) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&amp;family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/landing.css">
-  <link rel="stylesheet" href="assets/css/footer.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/header.css">
+<link rel="stylesheet" href="assets/css/landing.css">
+<link rel="stylesheet" href="assets/css/footer.css">
 </head>
 <body>
 
-  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+<a href="#main-content" class="skip-link" data-i18n="skip">Aller au contenu principal</a>
 
-  <!-- Sprite de formes organiques (invisible, utilisé via clip-path dans le CSS) -->
-  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;">
-    <defs>
-      <clipPath id="blob-1" clipPathUnits="objectBoundingBox">
-        <path d="M0.85,0.18 C1.02,0.32 0.98,0.62 0.88,0.8 C0.78,0.97 0.5,1.05 0.3,0.94 C0.08,0.82 -0.05,0.55 0.05,0.32 C0.15,0.08 0.42,-0.06 0.62,0.02 C0.72,0.06 0.78,0.12 0.85,0.18 Z"/>
-      </clipPath>
-      <clipPath id="blob-2" clipPathUnits="objectBoundingBox">
-        <path d="M0.2,0.05 C0.45,-0.05 0.75,0.02 0.9,0.25 C1.05,0.48 1.0,0.78 0.78,0.92 C0.56,1.06 0.22,1.0 0.08,0.8 C-0.08,0.58 -0.05,0.15 0.2,0.05 Z"/>
-      </clipPath>
-      <clipPath id="blob-3" clipPathUnits="objectBoundingBox">
-        <path d="M0.5,0 C0.75,0.02 0.95,0.2 0.98,0.48 C1.01,0.74 0.85,0.98 0.58,1.0 C0.32,1.02 0.06,0.88 0.02,0.6 C-0.03,0.3 0.1,0.05 0.35,0.01 C0.4,0 0.45,-0.01 0.5,0 Z"/>
-      </clipPath>
-      <clipPath id="torn-paper" clipPathUnits="objectBoundingBox">
-        <path d="M0,0.02 L0.18,0 L0.32,0.04 L0.5,0 L0.68,0.03 L0.84,0 L1,0.02
-                 L0.99,0.2 L1,0.4 L0.97,0.6 L1,0.8 L0.98,0.98
-                 L0.8,1 L0.6,0.97 L0.42,1 L0.24,0.98 L0.06,1 L0,0.98
-                 L0.03,0.8 L0,0.6 L0.02,0.4 L0,0.2 Z"/>
-      </clipPath>
-    </defs>
-  </svg>
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="#main-content" class="logo">Dinah<span class="logo__dot">.</span></a>
+    <nav class="site-header__nav" aria-label="Navigation principale">
+      <a href="#parcours" data-i18n="nav.parcours">Parcours</a>
+      <a href="#competences" data-i18n="nav.competences">Compétences</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <button id="langToggle" class="lang-toggle" aria-label="Changer la langue">FR / EN</button>
+    </nav>
+  </div>
+</header>
 
-  <!-- ============ HEADER / NAVIGATION ============ -->
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a href="#main-content" class="logo" aria-label="Retour en haut de page, Dinah Fanilontsoa">
-        Dinah<span class="logo__dot">.</span>
-      </a>
+<main id="main-content">
+  <section class="hero" aria-label="Présentation">
 
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">
-        <span class="visually-hidden">Ouvrir le menu</span>
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-      </button>
+    <div class="hero__orb hero__orb--1" aria-hidden="true"><div class="hero__orb__inner"></div></div>
+    <div class="hero__orb hero__orb--2" aria-hidden="true"><div class="hero__orb__inner"></div></div>
+    <div class="hero__orb hero__orb--3" aria-hidden="true"><div class="hero__orb__inner"></div></div>
 
-      <nav id="primaryNav" class="primary-nav" aria-label="Navigation principale">
-        <ul>
-          <li><a href="#parcours">Parcours</a></li>
-          <li><a href="#competences">Compétences</a></li>
-          <li><a href="#projets">Projets</a></li>
-          <li><a href="#contact" class="primary-nav__cta">Me contacter</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <img class="deco-mark deco-mark--pin" src="assets/images/deco-pin.svg" alt="" aria-hidden="true">
+    <img class="deco-mark deco-mark--code" src="assets/images/deco-code.svg" alt="" aria-hidden="true">
 
-  <main id="main-content">
-
-    <!-- ============ HERO / LANDING ============ -->
-    <section class="hero paper-texture" aria-label="Présentation">
-      <div class="hero__paper-layer hero__paper-layer--1" aria-hidden="true"></div>
-      <div class="hero__paper-layer hero__paper-layer--2" aria-hidden="true"></div>
-
-      <div class="container hero__inner">
-        <div class="hero__text">
-          <p class="hero__eyebrow">Carnet de parcours — 4 pays, une trajectoire</p>
-
-          <h1 class="hero__title">
-            <span class="hero__title-line">Géomaticienne</span>
-            <span class="hero__title-line">Cartographe</span>
-            <span class="hero__title-line hero__title-line--accent">&amp; Développeuse</span>
-          </h1>
-
-          <p class="hero__signature">
-            <span class="visually-hidden">Signature : </span>
-            <span aria-hidden="true">Dinah Fanilontsoa</span>
-          </p>
-
-          <p class="hero__bio">
-            Je transforme des territoires en données, et des données en interfaces.
-            De Madagascar à la Corée du Sud, mon parcours cartographie autant
-            de lieux que de lignes de code.
-          </p>
-
-          <div class="hero__actions">
-            <a href="#parcours" class="btn btn--primary">
-              Explorer mon parcours
-              <span class="btn__icon" aria-hidden="true">→</span>
-            </a>
-            <a href="#contact" class="btn btn--ghost">Me contacter</a>
-          </div>
-        </div>
-
-        <div class="hero__map" aria-hidden="false">
-          <!-- La carte SVG sera injectée ici par JS pour permettre l'animation -->
-          <div id="journeyMapMount" class="journey-map-mount"></div>
-          <p class="hero__map-caption">Madagascar → France → Corée du Sud → La Réunion</p>
-        </div>
+    <figure class="torn-piece torn-piece--map">
+      <div class="torn-piece__frame">
+        <img src="assets/images/map-torn.png" alt="" loading="lazy">
       </div>
+    </figure>
 
-      <button class="scroll-cue" id="scrollCue" aria-label="Défiler vers la section parcours">
-        <span class="scroll-cue__line" aria-hidden="true"></span>
-        <span class="scroll-cue__label">Défiler</span>
-      </button>
-    </section>
+    <figure class="torn-piece torn-piece--code">
+      <div class="torn-piece__frame">
+        <img src="assets/images/code-torn.png" alt="" loading="lazy">
+      </div>
+    </figure>
 
-    <!-- ============ TRANSITION ORGANIQUE (blobs) ============
-    <section class="blob-transition" aria-hidden="true">
-      <div class="blob-transition__shape blob-transition__shape--1"></div>
-      <div class="blob-transition__shape blob-transition__shape--2"></div>
-      <div class="blob-transition__shape blob-transition__shape--3"></div>
-    </section>
+    <div class="hero__stage">
+      <div class="panel-main">
+        <button type="button" class="hero__portrait" id="avatarTrigger" aria-haspopup="dialog" aria-label="Voir la photo de Dinah en grand">
+          <img src="assets/images/profile-square.jpg" alt="">
+          <span class="hero__portrait-hint" aria-hidden="true">Voir en grand</span>
+        </button>
 
-     ============ SECTION PARCOURS PAR PAYS (aperçu) ============ 
-    <section id="parcours" class="journey-overview">
-      <div class="container">
-        <p class="section-eyebrow">01 — Le parcours</p>
-        <h2 class="section-title">Quatre territoires, un fil conducteur</h2>
-        <p class="section-intro">
-          Chaque pays représente une étape de formation ou de mission professionnelle.
-          Cliquez sur une destination pour découvrir les projets réalisés sur place,
-          qu'ils soient académiques, tutorés ou professionnels.
+        <h1 class="hero__title" data-i18n="hero.eyebrow">Géomaticienne &amp; Développeuse</h1>
+        <p class="hero__title-name">Dinah Fanilontsoa</p>
+        <p class="hero__bio" data-i18n="hero.bio">
+          Je transforme des territoires en données, et des données en interfaces.
+          De Madagascar à la Corée du Sud, mon parcours cartographie autant
+          de lieux que de lignes de code.
         </p>
-
-        <ul class="country-grid">
-
-          <li>
-            <a href="parcours-madagascar.html" class="country-card" data-country="madagascar">
-              <span class="country-card__shape country-card__shape--1" aria-hidden="true"></span>
-              <span class="country-card__order">01</span>
-              <h3 class="country-card__title">Madagascar</h3>
-              <p class="country-card__meta">Fianarantsoa · Origines &amp; formation initiale</p>
-              <span class="country-card__cta">Voir les projets <span aria-hidden="true">→</span></span>
-            </a>
-          </li>
-
-          <li>
-            <a href="parcours-france.html" class="country-card" data-country="france">
-              <span class="country-card__shape country-card__shape--2" aria-hidden="true"></span>
-              <span class="country-card__order">02</span>
-              <h3 class="country-card__title">France</h3>
-              <p class="country-card__meta">Champs-sur-Marne · Cursus universitaire</p>
-              <span class="country-card__cta">Voir les projets <span aria-hidden="true">→</span></span>
-            </a>
-          </li>
-
-          <li>
-            <a href="parcours-coree.html" class="country-card" data-country="coree">
-              <span class="country-card__shape country-card__shape--3" aria-hidden="true"></span>
-              <span class="country-card__order">03</span>
-              <h3 class="country-card__title">Corée du Sud</h3>
-              <p class="country-card__meta">Mobilité internationale</p>
-              <span class="country-card__cta">Voir les projets <span aria-hidden="true">→</span></span>
-            </a>
-          </li>
-
-          <li>
-            <a href="parcours-reunion.html" class="country-card" data-country="reunion">
-              <span class="country-card__shape country-card__shape--1" aria-hidden="true"></span>
-              <span class="country-card__order">04</span>
-              <h3 class="country-card__title">La Réunion</h3>
-              <p class="country-card__meta">Mission professionnelle</p>
-              <span class="country-card__cta">Voir les projets <span aria-hidden="true">→</span></span>
-            </a>
-          </li>
-
-        </ul>
-      </div>
-    </section> -->
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="site-footer__top">
-        <div class="site-footer__brand">
-          <p class="site-footer__signature" aria-hidden="true">Dinah Fanilontsoa</p>
-          <p class="site-footer__tagline">
-            Géomaticienne cartographe &amp; développeuse — un parcours entre
-            terrain et code, de Madagascar à la Corée du Sud.
-          </p>
+        <div class="hero__actions">
+          <a href="#parcours" class="btn btn--primary">
+            <span data-i18n="hero.cta1">Explorer mon parcours</span>
+            <span class="btn__icon" aria-hidden="true">→</span>
+          </a>
+          <a href="#contact" class="btn btn--ghost" data-i18n="hero.cta2">Me contacter</a>
         </div>
-
-        <nav class="site-footer__nav" aria-label="Navigation du pied de page">
-          <div class="site-footer__col">
-            <h3>Explorer</h3>
-            <ul>
-              <li><a href="#parcours">Mon parcours</a></li>
-              <li><a href="#competences">Compétences</a></li>
-              <li><a href="#projets">Projets</a></li>
-            </ul>
-          </div>
-          <div class="site-footer__col">
-            <h3>Contact</h3>
-            <ul>
-              <li><a href="mailto:fanilontsoadinah@gmail.com">fanilontsoadinah@gmail.com</a></li>
-              <li><a href="https://www.linkedin.com/in/dinah-fanilontsoa-931578330/?skipRedirect=true" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-              <li><a href="https://github.com/FANILONTSOASantatriniainaDinah" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-
-      <div class="site-footer__bottom">
-        <p>© 2026 FANILONTSOA Santatriniaina Dinah. Tous droits réservés.</p>
-        <a href="mentions-legales.html">Mentions légales</a>
       </div>
     </div>
-  </footer>
 
+    <button class="scroll-cue" id="scrollCue" aria-label="Défiler vers la suite">
+      <span class="scroll-cue__line" aria-hidden="true"></span>
+      <span class="scroll-cue__label" data-i18n="hero.scroll">Défiler</span>
+    </button>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div class="site-footer__brand">
+      <p class="site-footer__signature" aria-hidden="true">Dinah Fanilontsoa</p>
+      <p class="site-footer__tagline" data-i18n="footer.tagline">
+        Géomaticienne cartographe &amp; développeuse — un parcours entre
+        terrain et code, de Madagascar à la Corée du Sud.
+      </p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Navigation du pied de page">
+      <div class="site-footer__col">
+        <h3 data-i18n="footer.explore">Explorer</h3>
+        <ul>
+          <li><a href="#parcours" data-i18n="nav.parcours">Parcours</a></li>
+          <li><a href="#competences" data-i18n="nav.competences">Compétences</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h3 data-i18n="footer.contact">Contact</h3>
+        <ul>
+          <li><a href="mailto:contact@dinah-portfolio.example">contact@dinah-portfolio.example</a></li>
+          <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="site-footer__bottom">
+    <p>© 2026 FANILONTSOA Santatriniaina Dinah.</p>
+    <a href="mentions-legales.html" data-i18n="footer.legal">Mentions légales</a>
+  </div>
+</footer>
+
+<dialog id="photoLightbox" class="lightbox" aria-label="Photo de Dinah Fanilontsoa en grand">
+  <div class="lightbox__frame">
+    <button type="button" class="lightbox__close" id="lightboxClose" aria-label="Fermer">✕</button>
+    <img class="lightbox__img" src="assets/images/profile-full.jpg" alt="Portrait de Dinah Fanilontsoa, géomaticienne cartographe et développeuse">
+    <div class="lightbox__caption">
+      <p class="lightbox__name">Dinah Fanilontsoa</p>
+      <p class="lightbox__role">Géomaticienne Cartographe &amp; Développeuse</p>
+    </div>
+  </div>
+</dialog>
+
+<script src="assets/js/i18n-dict.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/landing.js" defer></script>
+<script src="assets/js/lightbox.js" defer></script>
 </body>
 </html>

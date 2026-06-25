@@ -1,200 +1,66 @@
-/* ============================================================
-   BASE — Design tokens, reset, typographie
-   Portfolio de Dinah FANILONTSOA — Développeuse & Géomaticienne
-   ============================================================ */
-
-@font-face {
-  font-family: "Fraunces";
-  src: local("Fraunces");
-}
-
 :root {
-  /* --- Palette "Carnet de cartographe" --- */
-  --color-emerald: #284139;       /* vert profond - sections, texte fort */
-  --color-emerald-light: #355a4e;
-  --color-wasabi: #809076;        /* vert sauge - accents, hover */
-  --color-khaki: #f2e4b8;         /* papier kraft clair - fond principal */
-  --color-khaki-deep: #e8d6a0;
-  --color-earth: #b86830;         /* terracotta - CTA, tracés, accents chauds */
-  --color-earth-dark: #95541f;
-  --color-noir-vigne: #131c1a;    /* quasi noir - texte, footer */
-  --color-paper: #ede3cb;         /* kraft plus terne - couches "papier déchiré" */
-  --color-paper-shadow: rgba(19, 28, 26, 0.12);
+  --emerald: #284139;
+  --emerald-deep: #1b2e28;
+  --wasabi: #809076;
+  --khaki: #f2e4b8;
+  --khaki-deep: #e6d39a;
+  --earth: #b86830;
+  --earth-deep: #8f4f22;
+  --noir: #131c1a;
 
-  /* Texte */
-  --text-main: var(--color-noir-vigne);
-  --text-muted: #5a5448;
-  --text-on-dark: #f2e4b8;
+  --bg: #ece0bd;
+  --bg-soft: #f3e8c8;
 
-  /* Typographie (3 familles maximum) */
-  --font-signature: "Caveat", cursive;             /* nom, touche manuscrite */
-  --font-display: "Fraunces", "Iowan Old Style", serif; /* titres de section */
-  --font-body: "Space Grotesk", "Segoe UI", sans-serif;  /* texte courant, UI */
+  --glass-fill: rgba(255, 250, 235, 0.38);
+  --glass-fill-strong: rgba(255, 250, 235, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.55);
+  --glass-shadow: rgba(40, 65, 57, 0.25);
 
-  /* Échelle typographique */
-  --fs-hero: clamp(2.6rem, 6vw, 5.2rem);
-  --fs-h1: clamp(2.2rem, 4.5vw, 3.6rem);
-  --fs-h2: clamp(1.7rem, 3vw, 2.4rem);
-  --fs-h3: clamp(1.2rem, 2vw, 1.5rem);
-  --fs-body: clamp(1rem, 1.1vw, 1.125rem);
-  --fs-small: 0.875rem;
-  --fs-signature: clamp(2.4rem, 5vw, 4rem);
+  --ink: var(--noir);
+  --ink-dim: rgba(19, 28, 26, 0.62);
+  --ink-faint: rgba(19, 28, 26, 0.4);
 
-  /* Espacements */
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 4rem;
-  --space-xl: 7rem;
+  --font-signature: "Caveat", cursive;
+  --font-display: "Fraunces", serif;
+  --font-mono: "Space Grotesk", monospace;
 
-  /* Layout */
-  --max-width: 1280px;
-  --radius-organic: 38% 62% 58% 42% / 45% 38% 62% 55%;
-  --radius-soft: 1.5rem;
-
-  /* Ombres */
-  --shadow-paper: 0 18px 40px -12px rgba(19, 28, 26, 0.35);
-  --shadow-soft: 0 8px 24px -8px rgba(19, 28, 26, 0.25);
-
-  /* Transitions */
-  --ease-organic: cubic-bezier(0.16, 1, 0.3, 1);
-  --dur-fast: 0.25s;
-  --dur-med: 0.6s;
-  --dur-slow: 1.2s;
+  --fs-hero: clamp(2.6rem, 6.4vw, 5rem);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --- Reset --- */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
-
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
 
 body {
-  font-family: var(--font-body);
-  font-size: var(--fs-body);
-  color: var(--text-main);
-  background-color: var(--color-khaki);
+  font-family: var(--font-mono);
+  color: var(--ink);
+  background: var(--bg);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-img,
-video,
-svg {
-  max-width: 100%;
-  display: block;
-}
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; border: none; background: none; cursor: pointer; color: inherit; }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+h1, h2 { font-family: var(--font-display); line-height: 1.1; color: var(--ink); }
 
-ul,
-ol {
-  list-style: none;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.15;
-  color: var(--color-noir-vigne);
-}
-
-/* --- Accessibilité : focus visible --- */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-[tabindex]:focus-visible {
-  outline: 3px solid var(--color-earth);
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--earth);
   outline-offset: 3px;
-  border-radius: 4px;
-}
-
-/* --- Lien d'évitement (skip to content) --- */
-.skip-link {
-  position: absolute;
-  left: -999px;
-  top: 0;
-  background: var(--color-earth);
-  color: var(--color-khaki);
-  padding: 0.75rem 1.25rem;
-  z-index: 1000;
-  font-family: var(--font-body);
-  font-weight: 600;
-  border-radius: 0 0 8px 0;
-}
-
-.skip-link:focus {
-  left: 0;
-}
-
-/* --- Conteneur générique --- */
-.container {
-  width: 100%;
-  max-width: var(--max-width);
-  margin-inline: auto;
-  padding-inline: clamp(1.25rem, 5vw, 3rem);
 }
 
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
 }
 
-/* --- Texture papier kraft (grain) --- */
-.paper-texture {
-  position: relative;
-  isolation: isolate;
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--earth); color: var(--khaki);
+  padding: .75rem 1.25rem; z-index: 1000; font-weight: 600;
 }
-
-.paper-texture::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("../images/paper-grain.png");
-  background-repeat: repeat;
-  background-size: 256px 256px;
-  opacity: 0.55;
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  z-index: 1;
-}
+.skip-link:focus { left: 0; }

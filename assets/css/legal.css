@@ -1,98 +1,41 @@
 /* ============================================================
-   LEGAL — Page mentions légales
+   LEGAL — page mentions légales, thème clair papier
    ============================================================ */
 
-.site-header--static {
-  position: static;
-  background: var(--color-khaki);
-  backdrop-filter: none;
-  border-bottom: 1px solid rgba(19, 28, 26, 0.1);
-}
+.site-header--static .site-header__bar { background: var(--glass-fill-strong); }
 
-.back-link {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-emerald);
-  transition: color var(--dur-fast);
-}
-
-.back-link:hover,
-.back-link:focus-visible {
-  color: var(--color-earth);
-}
+.back-link { font-size: .85rem; font-weight: 700; color: var(--emerald); }
+.back-link:hover, .back-link:focus-visible { color: var(--earth-deep); }
 
 .legal-page {
-  background: var(--color-khaki);
   min-height: 100vh;
-  padding-block: var(--space-lg);
+  padding: 9rem clamp(1.25rem, 5vw, 3rem) 5rem;
+  background: radial-gradient(ellipse 90% 60% at 50% 0%, var(--bg-soft), var(--bg) 70%);
 }
 
-.legal-page__inner {
-  max-width: 760px;
-}
+.legal-page__inner { max-width: 720px; margin-inline: auto; }
 
-.section-eyebrow--dark {
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-earth-dark);
-  margin-bottom: var(--space-xs);
-}
-
-.legal-page__title {
-  font-size: var(--fs-h1);
-  margin-bottom: var(--space-lg);
-}
+.legal-page__title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 2.5rem; }
 
 .legal-block {
-  margin-bottom: var(--space-lg);
-  padding-bottom: var(--space-md);
-  border-bottom: 1px solid rgba(19, 28, 26, 0.1);
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(19,28,26,0.1);
 }
+.legal-block:last-child { border-bottom: none; }
 
-.legal-block:last-child {
-  border-bottom: none;
-}
+.legal-block h2 { font-size: 1.3rem; margin-bottom: .9rem; color: var(--emerald); }
+.legal-block p { color: var(--ink-dim); margin-bottom: .9rem; }
 
-.legal-block h2 {
-  font-size: var(--fs-h3);
-  margin-bottom: var(--space-sm);
-  color: var(--color-emerald);
-}
-
-.legal-block p {
-  color: var(--text-muted);
-  margin-bottom: var(--space-sm);
-}
-
-.legal-list {
-  margin-bottom: var(--space-sm);
-}
-
+.legal-list { margin-bottom: .9rem; }
 .legal-list li {
-  color: var(--text-muted);
-  padding-block: 0.25rem;
-  border-left: 2px solid var(--color-wasabi);
-  padding-left: 0.75rem;
-  margin-bottom: 0.4rem;
+  color: var(--ink-dim);
+  padding-block: .25rem;
+  border-left: 2px solid var(--wasabi);
+  padding-left: .75rem;
+  margin-bottom: .4rem;
 }
+.legal-list a { color: var(--earth-deep); font-weight: 700; text-decoration: underline; text-decoration-color: transparent; transition: text-decoration-color .2s; }
+.legal-list a:hover, .legal-list a:focus-visible { text-decoration-color: var(--earth-deep); }
 
-.legal-list a {
-  color: var(--color-earth-dark);
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  transition: text-decoration-color var(--dur-fast);
-}
-
-.legal-list a:hover,
-.legal-list a:focus-visible {
-  text-decoration-color: var(--color-earth-dark);
-}
-
-.legal-note {
-  font-size: var(--fs-small);
-  font-style: italic;
-  opacity: 0.85;
-}
+.legal-note { font-size: .85rem; font-style: italic; opacity: .85; }
