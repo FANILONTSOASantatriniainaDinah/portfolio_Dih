@@ -1,0 +1,88 @@
+<svg
+  class="journey-map"
+  viewBox="0 0 1000 520"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-labelledby="map-title map-desc"
+>
+  <title id="map-title">Carte du parcours de Dinah Fanilontsoa</title>
+  <desc id="map-desc">
+    Tracé reliant Madagascar, la France, la Corée du Sud et La Réunion,
+    illustrant le parcours académique et professionnel.
+  </desc>
+
+  <defs>
+    <!-- Filtre "main levée" léger sur les contours -->
+    <filter id="roughPaper" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="noise" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.2"/>
+    </filter>
+
+    <radialGradient id="pinGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#B86830" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#B86830" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Continents simplifiés, style line-art "carnet de croquis" -->
+  <g class="continents" fill="none" stroke-width="1.6" stroke-linejoin="round" opacity="0.55" filter="url(#roughPaper)">
+    <!-- Afrique + Madagascar (silhouette très simplifiée) -->
+    <path d="M430 160 C 420 140, 440 110, 470 105 C 500 100, 520 120, 525 150 C 535 190, 530 230, 545 270 C 555 300, 545 340, 520 360 C 495 378, 470 365, 460 335 C 450 300, 440 260, 430 220 C 425 200, 425 180, 430 160 Z"/>
+
+    <!-- Europe / France (forme stylisée) -->
+    <path d="M520 95 C 535 85, 555 82, 568 92 C 578 100, 575 115, 565 122 C 575 130, 572 145, 558 148 C 545 151, 530 145, 522 132 C 514 120, 512 105, 520 95 Z"/>
+
+    <!-- Asie / Corée du Sud (péninsule stylisée) -->
+    <path d="M790 130 C 800 120, 815 122, 818 135 C 821 148, 812 165, 805 178 C 800 188, 790 190, 785 180 C 778 165, 780 145, 790 130 Z"/>
+
+    <!-- Océan Indien / La Réunion (petite île, forme organique) -->
+    <path d="M610 300 C 618 296, 626 300, 627 309 C 628 318, 620 324, 612 321 C 605 318, 603 305, 610 300 Z"/>
+  </g>
+
+  <!-- Tracé GPS pointillé reliant les 4 destinations dans l'ordre du parcours -->
+  <path
+    id="gps-route"
+    class="gps-route"
+    d="M 480 230
+       C 520 210, 540 170, 545 130
+       C 548 110, 555 100, 545 113
+       C 600 150, 700 160, 800 150
+       C 760 200, 660 260, 619 311"
+    fill="none"
+    stroke-width="3"
+    stroke-linecap="round"
+    pathLength="100"
+  />
+
+  <!-- Pins de destination, animés en cascade via JS/CSS (classe .is-active) -->
+  <g class="pin" data-pin="madagascar" data-order="1" transform="translate(480,230)" tabindex="0" role="img" aria-label="Madagascar">
+    <circle r="22" fill="url(#pinGlow)"/>
+    <path class="pin-body" d="M0,-14 C8,-14 14,-8 14,0 C14,9 0,18 0,18 C0,18 -14,9 -14,0 C-14,-8 -8,-14 0,-14 Z"/>
+    <circle class="pin-hole" cy="-1" r="4.5"/>
+  </g>
+
+  <g class="pin" data-pin="france" data-order="2" transform="translate(545,113)" tabindex="0" role="img" aria-label="France">
+    <circle r="22" fill="url(#pinGlow)"/>
+    <path class="pin-body" d="M0,-14 C8,-14 14,-8 14,0 C14,9 0,18 0,18 C0,18 -14,9 -14,0 C-14,-8 -8,-14 0,-14 Z"/>
+    <circle class="pin-hole" cy="-1" r="4.5"/>
+  </g>
+
+  <g class="pin" data-pin="coree" data-order="3" transform="translate(800,150)" tabindex="0" role="img" aria-label="Corée du Sud">
+    <circle r="22" fill="url(#pinGlow)"/>
+    <path class="pin-body" d="M0,-14 C8,-14 14,-8 14,0 C14,9 0,18 0,18 C0,18 -14,9 -14,0 C-14,-8 -8,-14 0,-14 Z"/>
+    <circle class="pin-hole" cy="-1" r="4.5"/>
+  </g>
+
+  <g class="pin" data-pin="reunion" data-order="4" transform="translate(619,311)" tabindex="0" role="img" aria-label="La Réunion">
+    <circle r="22" fill="url(#pinGlow)"/>
+    <path class="pin-body" d="M0,-14 C8,-14 14,-8 14,0 C14,9 0,18 0,18 C0,18 -14,9 -14,0 C-14,-8 -8,-14 0,-14 Z"/>
+    <circle class="pin-hole" cy="-1" r="4.5"/>
+  </g>
+
+  <!-- Petit voilier décoratif sur la route, esprit "carnet d'explorateur" -->
+  <g class="route-boat" transform="translate(650,190)">
+    <path d="M-10,6 L10,6 L6,14 L-6,14 Z" fill="none" stroke-width="1.4"/>
+    <line x1="0" y1="6" x2="0" y2="-12" stroke-width="1.4"/>
+    <path class="route-boat__sail" d="M0,-12 L10,2 L0,2 Z"/>
+  </g>
+</svg>

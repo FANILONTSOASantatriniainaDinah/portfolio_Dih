@@ -1,0 +1,526 @@
+/* ============================================================
+   LANDING — Header, Hero, transition organique, aperçu parcours
+   ============================================================ */
+
+/* ---------- HEADER ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-block: var(--space-sm);
+  background: linear-gradient(to bottom, rgba(242, 228, 184, 0.92), rgba(242, 228, 184, 0.65));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.logo {
+  font-family: var(--font-signature);
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--color-emerald);
+  line-height: 1;
+}
+
+.logo__dot {
+  color: var(--color-earth);
+}
+
+.primary-nav ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.primary-nav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-noir-vigne);
+  position: relative;
+  padding-block: 0.25rem;
+}
+
+.primary-nav a:not(.primary-nav__cta)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--color-earth);
+  transition: width var(--dur-fast) var(--ease-organic);
+}
+
+.primary-nav a:not(.primary-nav__cta):hover::after,
+.primary-nav a:not(.primary-nav__cta):focus-visible::after {
+  width: 100%;
+}
+
+.primary-nav__cta {
+  background: var(--color-emerald);
+  color: var(--color-khaki) !important;
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  transition: background var(--dur-fast) var(--ease-organic), transform var(--dur-fast);
+}
+
+.primary-nav__cta:hover,
+.primary-nav__cta:focus-visible {
+  background: var(--color-earth);
+  transform: translateY(-2px);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.5rem;
+}
+
+.nav-toggle__bar {
+  width: 24px;
+  height: 2px;
+  background: var(--color-noir-vigne);
+  border-radius: 2px;
+  transition: transform var(--dur-fast) var(--ease-organic), opacity var(--dur-fast);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(4) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 6rem;
+  background-color: var(--color-khaki);
+  overflow: hidden;
+}
+
+/* Couches "papier déchiré" décoratives en fond de hero */
+.hero__paper-layer {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__paper-layer--1 {
+  top: -8%;
+  right: -10%;
+  width: 46vw;
+  height: 46vw;
+  max-width: 560px;
+  max-height: 560px;
+  background: var(--color-paper);
+  clip-path: url(#blob-2);
+  opacity: 0.7;
+}
+
+.hero__paper-layer--2 {
+  bottom: -15%;
+  left: -8%;
+  width: 38vw;
+  height: 38vw;
+  max-width: 480px;
+  max-height: 480px;
+  background: var(--color-wasabi);
+  clip-path: url(#blob-3);
+  opacity: 0.25;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+  padding-block: var(--space-lg);
+}
+
+.hero__eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-earth-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.hero__title {
+  font-size: var(--fs-hero);
+  margin-bottom: var(--space-sm);
+}
+
+.hero__title-line {
+  display: block;
+}
+
+.hero__title-line--accent {
+  color: var(--color-wasabi);
+  font-style: italic;
+}
+
+.hero__signature {
+  font-family: var(--font-signature);
+  font-size: var(--fs-signature);
+  color: var(--color-emerald);
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+  transform: rotate(-2deg);
+  transform-origin: left center;
+}
+
+.hero__bio {
+  max-width: 36ch;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: var(--space-md);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform var(--dur-fast) var(--ease-organic),
+              background var(--dur-fast),
+              box-shadow var(--dur-fast);
+}
+
+.btn--primary {
+  background: var(--color-earth);
+  color: var(--color-khaki);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background: var(--color-earth-dark);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-paper);
+}
+
+.btn__icon {
+  display: inline-block;
+  transition: transform var(--dur-fast) var(--ease-organic);
+}
+
+.btn--primary:hover .btn__icon {
+  transform: translateX(4px);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-emerald);
+  border: 1.5px solid var(--color-emerald);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  background: var(--color-emerald);
+  color: var(--color-khaki);
+}
+
+/* ---------- Carte du parcours (hero) ---------- */
+.hero__map {
+  position: relative;
+}
+
+.journey-map-mount {
+  width: 100%;
+  filter: drop-shadow(0 16px 32px rgba(19, 28, 26, 0.18));
+}
+
+.hero__map-caption {
+  text-align: center;
+  margin-top: var(--space-sm);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ---------- Scroll cue ---------- */
+.scroll-cue {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 3;
+  color: var(--text-muted);
+}
+
+.scroll-cue__line {
+  width: 1.5px;
+  height: 32px;
+  background: var(--color-emerald);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-cue__line::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-earth);
+  animation: scrollFlow 1.8s var(--ease-organic) infinite;
+}
+
+@keyframes scrollFlow {
+  to { top: 100%; }
+}
+
+.scroll-cue__label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---------- Transition organique (blobs) ---------- */
+.blob-transition {
+  position: relative;
+  height: clamp(120px, 18vw, 220px);
+  background: var(--color-khaki);
+  overflow: hidden;
+}
+
+.blob-transition__shape {
+  position: absolute;
+  border-radius: var(--radius-organic);
+  opacity: 0;
+  transform: translateY(40px) scale(0.85);
+  transition: opacity 0.9s var(--ease-organic), transform 0.9s var(--ease-organic);
+}
+
+.blob-transition.is-visible .blob-transition__shape {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.blob-transition__shape--1 {
+  width: 18vw;
+  height: 14vw;
+  max-width: 220px;
+  max-height: 170px;
+  left: 8%;
+  top: 20%;
+  background: var(--color-emerald);
+  transition-delay: 0s;
+}
+
+.blob-transition__shape--2 {
+  width: 14vw;
+  height: 11vw;
+  max-width: 170px;
+  max-height: 130px;
+  left: 45%;
+  top: 5%;
+  background: var(--color-earth);
+  transition-delay: 0.15s;
+}
+
+.blob-transition__shape--3 {
+  width: 20vw;
+  height: 15vw;
+  max-width: 240px;
+  max-height: 180px;
+  right: 6%;
+  top: 15%;
+  background: var(--color-wasabi);
+  transition-delay: 0.3s;
+}
+
+/* ---------- Aperçu du parcours par pays ---------- */
+.journey-overview {
+  background: var(--color-emerald);
+  color: var(--color-khaki);
+  padding-block: var(--space-xl);
+}
+
+.journey-overview .section-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-wasabi);
+  margin-bottom: var(--space-xs);
+}
+
+.journey-overview .section-title {
+  color: var(--color-khaki);
+  font-size: var(--fs-h1);
+  margin-bottom: var(--space-sm);
+  max-width: 18ch;
+}
+
+.journey-overview .section-intro {
+  max-width: 56ch;
+  color: var(--color-khaki);
+  opacity: 0.85;
+  margin-bottom: var(--space-lg);
+}
+
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-md);
+}
+
+.country-grid > li {
+  display: contents;
+}
+
+.country-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: var(--space-md);
+  background: rgba(242, 228, 184, 0.06);
+  border: 1px solid rgba(242, 228, 184, 0.18);
+  border-radius: var(--radius-soft);
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform var(--dur-fast) var(--ease-organic),
+              border-color var(--dur-fast),
+              background var(--dur-fast);
+}
+
+.country-card:hover,
+.country-card:focus-visible {
+  transform: translateY(-6px);
+  border-color: var(--color-earth);
+  background: rgba(242, 228, 184, 0.1);
+}
+
+.country-card__shape {
+  position: absolute;
+  inset: -20% -20% auto auto;
+  width: 140px;
+  height: 140px;
+  opacity: 0.18;
+  z-index: -1;
+  transition: transform var(--dur-med) var(--ease-organic);
+}
+
+.country-card:hover .country-card__shape {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.country-card__shape--1 { background: var(--color-earth); clip-path: url(#blob-1); }
+.country-card__shape--2 { background: var(--color-wasabi); clip-path: url(#blob-2); }
+.country-card__shape--3 { background: var(--color-khaki); clip-path: url(#blob-3); }
+
+.country-card__order {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--color-wasabi);
+  letter-spacing: 0.05em;
+}
+
+.country-card__title {
+  color: var(--color-khaki);
+  font-size: var(--fs-h3);
+}
+
+.country-card__meta {
+  font-size: var(--fs-small);
+  opacity: 0.75;
+}
+
+.country-card__cta {
+  margin-top: auto;
+  padding-top: var(--space-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-earth);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    text-align: left;
+    padding-top: var(--space-md);
+  }
+
+  .hero__map {
+    order: -1;
+    max-width: 420px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .primary-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(80vw, 320px);
+    background: var(--color-emerald);
+    padding: 6rem var(--space-md) var(--space-md);
+    transform: translateX(100%);
+    transition: transform var(--dur-med) var(--ease-organic);
+  }
+
+  .primary-nav[data-open="true"] {
+    transform: translateX(0);
+  }
+
+  .primary-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .primary-nav a {
+    color: var(--color-khaki);
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 5rem;
+  }
+  .hero__signature {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+}
