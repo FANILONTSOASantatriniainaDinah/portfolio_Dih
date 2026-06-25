@@ -17,3 +17,24 @@
 .site-header__nav { display: flex; gap: 1.6rem; align-items: center; }
 .site-header__nav a { font-size: .85rem; font-weight: 600; color: var(--ink-dim); }
 .site-header__nav a:hover { color: var(--earth-deep); }
+
+.cv-link {
+  font-size: .8rem !important;
+  font-weight: 700 !important;
+  padding: .35rem .75rem;
+  border: 1px solid rgba(40,65,57,.25);
+  border-radius: 999px;
+  color: var(--emerald) !important;
+  transition: background .2s, border-color .2s;
+}
+.cv-link:hover, .cv-link:focus-visible {
+  background: rgba(40,65,57,.08);
+  border-color: var(--emerald);
+}
+
+@media (max-width: 640px) {
+  .site-header__nav { gap: .7rem; }
+  .site-header__nav a:not(.cv-link) { display: none; }
+  .cv-link { font-size: .72rem !important; padding: .3rem .6rem; }
+  .logo { font-size: 1.3rem; }
+}

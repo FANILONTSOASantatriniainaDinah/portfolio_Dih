@@ -8,12 +8,13 @@ const PORTFOLIO_I18N_DICT = {
     "nav.parcours": "Parcours",
     "nav.competences": "Compétences",
     "nav.contact": "Contact",
+    "nav.cv": "CV ↓",
 
     "hero.eyebrow": "Géomaticienne &amp; Développeuse",
     "hero.bio": "Je transforme des territoires en données, et des données en interfaces. De Madagascar à la Corée du Sud, mon parcours cartographie autant de lieux que de lignes de code.",
     "hero.cta1": "Explorer mon parcours",
     "hero.cta2": "Me contacter",
-    "hero.scroll": "Défiler",
+    "hero.scroll": "Suivre la route",
 
     "footer.tagline": "Géomaticienne cartographe &amp; développeuse — un parcours entre terrain et code, de Madagascar à la Corée du Sud.",
     "footer.explore": "Explorer",
@@ -26,12 +27,13 @@ const PORTFOLIO_I18N_DICT = {
     "nav.parcours": "Journey",
     "nav.competences": "Skills",
     "nav.contact": "Contact",
+    "nav.cv": "Resume ↓",
 
     "hero.eyebrow": "Geomatics &amp; Developer",
     "hero.bio": "I turn territories into data, and data into interfaces. From Madagascar to South Korea, my path maps as many places as lines of code.",
     "hero.cta1": "Explore my journey",
     "hero.cta2": "Get in touch",
-    "hero.scroll": "Scroll",
+    "hero.scroll": "Follow the trail",
 
     "footer.tagline": "Geomatics cartographer &amp; developer — a path between fieldwork and code, from Madagascar to South Korea.",
     "footer.explore": "Explore",

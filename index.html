@@ -28,6 +28,7 @@
       <a href="#parcours" data-i18n="nav.parcours">Parcours</a>
       <a href="#competences" data-i18n="nav.competences">Compétences</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="assets/cv-dinah-fanilontsoa.pdf" class="cv-link" download data-i18n="nav.cv">CV ↓</a>
       <button id="langToggle" class="lang-toggle" aria-label="Changer la langue">FR / EN</button>
     </nav>
   </div>
@@ -79,9 +80,17 @@
       </div>
     </div>
 
-    <button class="scroll-cue" id="scrollCue" aria-label="Défiler vers la suite">
-      <span class="scroll-cue__line" aria-hidden="true"></span>
-      <span class="scroll-cue__label" data-i18n="hero.scroll">Défiler</span>
+    <button class="scroll-cue" id="scrollCue" aria-label="Découvrir mon parcours en défilant">
+      <span class="scroll-cue__compass" aria-hidden="true">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+          <g class="scroll-cue__needle">
+            <path d="M20 7 L23 20 L20 33 L17 20 Z" fill="currentColor" opacity="0.85"/>
+          </g>
+          <circle cx="20" cy="20" r="2" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="scroll-cue__label" data-i18n="hero.scroll">Suivre la route</span>
     </button>
   </section>
 </main>
@@ -106,7 +115,7 @@
       <div class="site-footer__col">
         <h3 data-i18n="footer.contact">Contact</h3>
         <ul>
-          <li><a href="mailto:fanilontsoadinah@gmail.com">fanilontsoadinah@gmail.com</a></li>
+          <li><a href="mailto:contact@dinah-portfolio.example">contact@dinah-portfolio.example</a></li>
           <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
         </ul>
