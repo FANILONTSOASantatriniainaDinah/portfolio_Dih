@@ -1,0 +1,369 @@
+/* ============================================================
+   JOURNEY v3 — Globe en fond, ligne de connexion glass, bulles
+   territoires cliquables avec voile uniforme + indice de clic.
+   ============================================================ */
+
+.journey {
+  position: relative;
+  background: linear-gradient(180deg,
+    #e6d8ac 0%,
+    #d4c89a 12%,
+    var(--wasabi) 36%,
+    #5c6b52 60%,
+    var(--emerald-deep) 84%,
+    var(--night-deep) 100%
+  );
+  padding-block: 6rem 1rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ---------- Globe en fond, faible opacité, animé ---------- */
+.journey__globe {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  width: min(900px, 110vw);
+  transform: translateX(-50%);
+  color: var(--emerald-deep);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+  animation: globeSpin 70s linear infinite;
+}
+
+@keyframes globeSpin {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to   { transform: translateX(-50%) rotate(360deg); }
+}
+
+.journey__intro {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  text-align: center;
+  margin: 0 auto 3.5rem;
+}
+
+.eyebrow--night {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--earth);
+}
+
+.journey__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  color: var(--noir);
+  margin: .5rem 0 1rem;
+}
+
+.journey__lead {
+  color: rgba(19,28,26,.68);
+  font-size: .98rem;
+}
+
+.journey__legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.1rem;
+}
+
+.journey__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-size: .8rem;
+  font-weight: 600;
+  color: rgba(19,28,26,.6);
+}
+
+.journey__legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.journey__legend-dot--academique { background: var(--wasabi); box-shadow: 0 0 6px rgba(168,193,154,.7); }
+.journey__legend-dot--professionnel { background: var(--earth); box-shadow: 0 0 6px rgba(184,104,48,.7); }
+
+/* ---------- Conteneur de la carte interactive ---------- */
+.journey__map {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin-inline: auto;
+  aspect-ratio: 4 / 3;
+  max-height: 760px;
+  margin-bottom: 2rem;
+}
+
+.journey__connector {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.journey__connector-path--glow {
+  stroke: rgba(168, 193, 154, 0.5);
+  stroke-width: 22;
+  stroke-linecap: round;
+  filter: blur(14px);
+  opacity: 0.55;
+}
+
+.journey__connector-path--main {
+  stroke: url(#trailGradient);
+  stroke-width: 3;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(242,232,214,.6));
+}
+
+.journey__connector-path--thin-a {
+  stroke: rgba(255,255,255,.85);
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  transform: translate(0px, -6px);
+  opacity: 0.8;
+}
+
+.journey__connector-path--thin-b {
+  stroke: rgba(168, 193, 154, .7);
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  transform: translate(0px, 6px);
+  opacity: 0.7;
+}
+
+.journey__arrow {
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,.45));
+}
+
+/* ---------- Bulle territoire : positionnée en absolu sur la carte ---------- */
+.territory-wrap {
+  position: absolute;
+  top: var(--stop-y);
+  left: var(--stop-x);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.territory-stop {
+  position: relative;
+  display: block;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.territory-stop.is-visible {
+  opacity: 1;
+}
+
+.territory-stop__bubble {
+  position: relative;
+  width: clamp(110px, 14vw, 170px);
+  height: clamp(110px, 14vw, 170px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+}
+
+.glass-card {
+  background: rgba(255,255,255,.22);
+  border: 2px solid rgba(255,255,255,.55);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  box-shadow: 0 16px 36px -14px rgba(0,0,0,.5);
+}
+
+/* reflet de lumière unique, discret, en haut-gauche */
+.territory-stop__bubble::after {
+  content: "";
+  position: absolute;
+  top: 8%;
+  left: 16%;
+  width: 34%;
+  height: 18%;
+  background: rgba(255,255,255,.55);
+  border-radius: 50%;
+  filter: blur(4px);
+  transform: rotate(-20deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.territory-stop:hover .territory-stop__bubble,
+.territory-stop:focus-visible .territory-stop__bubble {
+  transform: scale(1.08);
+  border-color: var(--earth);
+  box-shadow: 0 20px 42px -14px rgba(0,0,0,.55), 0 0 0 3px rgba(184,104,48,.3);
+}
+
+.bubble-fleck {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,.5);
+  z-index: 2;
+  pointer-events: none;
+}
+.bubble-fleck--a { width: 6px; height: 6px; top: 20%; right: 18%; }
+.bubble-fleck--b { width: 4px; height: 4px; bottom: 22%; right: 28%; }
+
+.territory-stop__map {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.3));
+  transition: transform .4s var(--ease);
+  animation: territoryDrift 9s var(--ease) infinite;
+}
+
+@keyframes territoryDrift {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-4px) rotate(1deg); }
+}
+
+.territory-stop:hover .territory-stop__map { transform: scale(1.06); }
+
+/* ---------- Nom du pays : discret, intégré au bas de la bulle ---------- */
+.territory-stop__name {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-signature);
+  font-size: clamp(.85rem, 1.3vw, 1.05rem);
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,.6);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ---------- Satellites de projets, affichés au clic ---------- */
+.territory-satellites {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  pointer-events: none;
+}
+.territory-satellites:not([hidden]) {
+  pointer-events: auto;
+}
+
+.satellite {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 92px;
+  transform: translate(-50%, -50%) scale(0.3);
+  opacity: 0;
+  transition: opacity .4s var(--ease), transform .4s var(--ease);
+  text-align: center;
+  text-decoration: none;
+  z-index: 6;
+}
+.satellite.is-open {
+  opacity: 1;
+  transform: translate(calc(-50% + var(--sat-x)), calc(-50% + var(--sat-y))) scale(1);
+}
+
+/* Catégorie encodée par couleur de glow : académique = wasabi, professionnel = earth */
+.satellite[data-category="academique"] { --cat-color: var(--wasabi); --cat-glow: rgba(168,193,154,.65); }
+.satellite[data-category="professionnel"] { --cat-color: var(--earth); --cat-glow: rgba(226,147,90,.65); }
+
+.satellite__bubble {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: .64rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255,255,255,.1);
+  border: 1.5px solid var(--cat-color, rgba(255,255,255,.4));
+  backdrop-filter: blur(6px) saturate(160%);
+  -webkit-backdrop-filter: blur(6px) saturate(160%);
+  box-shadow:
+    0 8px 24px -6px var(--cat-glow, rgba(0,0,0,.4)),
+    0 0 0 1px rgba(255,255,255,.08) inset;
+  padding: 10px;
+  line-height: 1.25;
+  overflow: hidden;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.satellite:hover .satellite__bubble,
+.satellite:focus-visible .satellite__bubble {
+  transform: scale(1.12);
+  box-shadow:
+    0 12px 30px -6px var(--cat-glow, rgba(0,0,0,.5)),
+    0 0 0 2px var(--cat-color, rgba(255,255,255,.5)) inset;
+}
+
+.territory-more {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%) scale(0.3);
+  opacity: 0;
+  transition: opacity .4s var(--ease) .1s, transform .4s var(--ease) .1s;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: .76rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255,255,255,.12);
+  border: 1.5px solid rgba(255,255,255,.55);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  padding: .6rem 1.3rem;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 0 24px rgba(242,232,214,.35), 0 8px 20px -6px rgba(0,0,0,.4);
+  z-index: 6;
+}
+.territory-more.is-open {
+  opacity: 1;
+  transform: translate(calc(-50% + var(--more-x)), calc(-50% + var(--more-y))) scale(1);
+}
+.territory-more:hover, .territory-more:focus-visible {
+  background: rgba(255,255,255,.22);
+  box-shadow: 0 0 32px rgba(242,232,214,.5), 0 10px 24px -6px rgba(0,0,0,.45);
+}
+
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  .journey__map {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.5rem;
+    padding-block: 2rem;
+  }
+  .journey__connector { display: none; }
+  .territory-stop {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    transform: none;
+  }
+}

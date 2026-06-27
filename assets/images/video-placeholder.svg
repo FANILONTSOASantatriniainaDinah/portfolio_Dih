@@ -1,0 +1,6 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aperçu vidéo non disponible">
+  <rect width="800" height="450" fill="#131c1a"/>
+  <circle cx="400" cy="205" r="46" fill="none" stroke="#f2e4b8" stroke-width="2" opacity="0.6"/>
+  <path d="M390 185 L425 205 L390 225 Z" fill="#f2e4b8" opacity="0.6"/>
+  <text x="400" y="290" font-family="monospace" font-size="16" fill="#f2e4b8" opacity="0.5" text-anchor="middle">Vidéo à venir</text>
+</svg>

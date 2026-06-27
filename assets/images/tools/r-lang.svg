@@ -1,0 +1,6 @@
+<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="R / RShiny">
+  <circle cx="24" cy="24" r="22" fill="#fff" opacity="0.92"/>
+  <path d="M24 10 C14 10 7 15.5 7 23 C7 28.5 11 33 17 35.5 L13 42 L19 42 L22 36 L24 36 C34 36 41 30.5 41 23 C41 15.5 34 10 24 10 Z"
+        fill="#268BCA" opacity="0.15"/>
+  <text x="22" y="30" font-family="Georgia, serif" font-weight="bold" font-style="italic" font-size="20" fill="#268BCA" text-anchor="middle">R</text>
+</svg>

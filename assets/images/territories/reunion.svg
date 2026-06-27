@@ -1,0 +1,23 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="territory" data-country="reunion" role="img" aria-label="Carte de La Réunion aux couleurs du drapeau français">
+  <defs>
+    <clipPath id="territoryClip-re">
+      <path d="M 163.16,38.17 L 144.56,40.40 L 95.44,66.49 L 72.37,70.21 L 60.47,88.10 L 61.95,117.89 L 27.72,132.04 L 24.00,171.50 L 40.37,202.01 L 55.26,231.77 L 74.60,283.82 L 120.00,308.35 L 169.12,338.07 L 244.28,361.83 L 327.63,351.44 L 363.35,330.64 L 357.40,296.45 L 373.77,254.82 L 376.00,211.68 L 337.30,172.99 L 314.98,117.15 L 279.26,66.49 Z"/>
+    </clipPath>
+    <filter id="glow-re" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <path filter="url(#glow-re)" opacity="0.35" fill="#ED2939"
+        d="M 163.16,38.17 L 144.56,40.40 L 95.44,66.49 L 72.37,70.21 L 60.47,88.10 L 61.95,117.89 L 27.72,132.04 L 24.00,171.50 L 40.37,202.01 L 55.26,231.77 L 74.60,283.82 L 120.00,308.35 L 169.12,338.07 L 244.28,361.83 L 327.63,351.44 L 363.35,330.64 L 357.40,296.45 L 373.77,254.82 L 376.00,211.68 L 337.30,172.99 L 314.98,117.15 L 279.26,66.49 Z"/>
+
+  <g clip-path="url(#territoryClip-re)">
+    <rect x="0" y="0" width="135" height="400" fill="#002395"/>
+    <rect x="135" y="0" width="135" height="400" fill="#FFFFFF"/>
+    <rect x="270" y="0" width="130" height="400" fill="#ED2939"/>
+    <rect x="0" y="0" width="400" height="400" fill="#1c2b22" opacity="0.38"/>
+  </g>
+  <path fill="none" stroke="#f4ecd4" stroke-width="3" opacity="0.9"
+        d="M 163.16,38.17 L 144.56,40.40 L 95.44,66.49 L 72.37,70.21 L 60.47,88.10 L 61.95,117.89 L 27.72,132.04 L 24.00,171.50 L 40.37,202.01 L 55.26,231.77 L 74.60,283.82 L 120.00,308.35 L 169.12,338.07 L 244.28,361.83 L 327.63,351.44 L 363.35,330.64 L 357.40,296.45 L 373.77,254.82 L 376.00,211.68 L 337.30,172.99 L 314.98,117.15 L 279.26,66.49 Z"/>
+</svg>

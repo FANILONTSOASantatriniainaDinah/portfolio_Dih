@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dinah Fanilontsoa — Développeuse &amp; Géomaticienne Cartographe</title>
+<title>Dinah Fanilontsoa, Développeuse &amp; Géomaticienne Cartographe</title>
 <meta name="description" content="Portfolio de FANILONTSOA Santatriniaina Dinah, développeuse et géomaticienne cartographe.">
 
 <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
@@ -15,12 +15,18 @@
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/header.css">
 <link rel="stylesheet" href="assets/css/landing.css">
+<link rel="stylesheet" href="assets/css/journey.css">
+<link rel="stylesheet" href="assets/css/skills.css">
 <link rel="stylesheet" href="assets/css/footer.css">
 </head>
 <body>
 
 <a href="#main-content" class="skip-link" data-i18n="skip">Aller au contenu principal</a>
 
+<!-- ============================================================
+     EN-TÊTE DU SITE : logo, menu de navigation, lien CV,
+     bouton de changement de langue (FR/EN)
+     ============================================================ -->
 <header class="site-header">
   <div class="site-header__bar">
     <a href="#main-content" class="logo">Dinah<span class="logo__dot">.</span></a>
@@ -35,6 +41,11 @@
 </header>
 
 <main id="main-content">
+  <!-- ============================================================
+       SECTION HERO (landing) : photo, titre, signature, bio,
+       boutons d'action. Animation de papier déchiré + billes
+       flottantes en arrière-plan (voir assets/css/landing.css)
+       ============================================================ -->
   <section class="hero" aria-label="Présentation">
 
     <div class="hero__orb hero__orb--1" aria-hidden="true"><div class="hero__orb__inner"></div></div>
@@ -93,14 +104,349 @@
       <span class="scroll-cue__label" data-i18n="hero.scroll">Suivre la route</span>
     </button>
   </section>
+
+  <!-- ============================================================
+       SECTION PARCOURS : globe en fond, 4 territoires cliquables
+       (Madagascar, Réunion, France, Corée). Le clic sur un
+       territoire ouvre des bulles-satellites présentant les
+       projets réalisés (voir assets/js/journey.js)
+       ============================================================ -->
+  <section id="parcours" class="journey" aria-label="Mon parcours à travers 4 territoires">
+    <img class="journey__globe" src="assets/images/globe-bg.svg" alt="" aria-hidden="true">
+
+    <div class="journey__intro container">
+      <p class="eyebrow eyebrow--night" data-i18n="journey.eyebrow">Le chemin parcouru</p>
+      <h2 class="journey__title" data-i18n="journey.title">Quatre territoires, une trajectoire</h2>
+      <p class="journey__lead" data-i18n="journey.lead">
+        De Madagascar à la Corée du Sud, en passant par La Réunion et la France :
+        chaque étape a façonné ma double identité de géomaticienne et de développeuse.
+        Cliquez sur un territoire pour l'explorer.
+      </p>
+      <p class="journey__legend">
+        <span class="journey__legend-item"><span class="journey__legend-dot journey__legend-dot--academique"></span> <span data-i18n="journey.legend.academique">Académique</span></span>
+        <span class="journey__legend-item"><span class="journey__legend-dot journey__legend-dot--professionnel"></span> <span data-i18n="journey.legend.professionnel">Professionnel</span></span>
+      </p>
+    </div>
+
+    <div class="journey__map">
+      <svg class="journey__connector" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="trailGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#a8c19a"/>
+            <stop offset="50%" stop-color="#f4ecd4"/>
+            <stop offset="100%" stop-color="#b86830"/>
+          </linearGradient>
+          <radialGradient id="arrowGlow" cx="30%" cy="50%" r="70%">
+            <stop offset="0%" stop-color="#f4ecd4" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#a8c19a" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <path id="trailPath" class="journey__connector-path journey__connector-path--glow" d="M 200 60 C 420 80, 560 140, 700 200 C 560 280, 420 340, 380 420 C 480 520, 660 560, 740 660" fill="none"/>
+        <path class="journey__connector-path journey__connector-path--main" d="M 200 60 C 420 80, 560 140, 700 200 C 560 280, 420 340, 380 420 C 480 520, 660 560, 740 660" fill="none"/>
+        <path class="journey__connector-path journey__connector-path--thin-a" d="M 200 60 C 420 80, 560 140, 700 200 C 560 280, 420 340, 380 420 C 480 520, 660 560, 740 660" fill="none"/>
+        <path class="journey__connector-path journey__connector-path--thin-b" d="M 200 60 C 420 80, 560 140, 700 200 C 560 280, 420 340, 380 420 C 480 520, 660 560, 740 660" fill="none"/>
+        <g id="trailArrow" class="journey__arrow">
+          <circle r="26" fill="url(#arrowGlow)"/>
+          <path d="M -16,-13 L 18,0 L -16,13 L -8,0 Z" fill="url(#trailGradient)"/>
+        </g>
+      </svg>
+
+      <!-- ===== Étape 1 : Madagascar ===== -->
+      <div class="territory-wrap" style="--stop-x: 20%; --stop-y: 6%;">
+        <button type="button" class="territory-stop" data-country="madagascar" aria-expanded="false" aria-controls="sat-madagascar">
+          <span class="territory-stop__bubble glass-card">
+            <span class="bubble-fleck bubble-fleck--a" aria-hidden="true"></span>
+            <span class="bubble-fleck bubble-fleck--b" aria-hidden="true"></span>
+            <img class="territory-stop__map" src="assets/images/territories/madagascar.svg" alt="">
+            <span class="territory-stop__name">Madagascar</span>
+          </span>
+          <span class="visually-hidden">Afficher les projets réalisés à Madagascar</span>
+        </button>
+        <div class="territory-satellites" id="sat-madagascar" hidden></div>
+      </div>
+
+      <!-- ===== Étape 2 : La Réunion ===== -->
+      <div class="territory-wrap" style="--stop-x: 70%; --stop-y: 20%;">
+        <button type="button" class="territory-stop" data-country="reunion" aria-expanded="false" aria-controls="sat-reunion">
+          <span class="territory-stop__bubble glass-card">
+            <span class="bubble-fleck bubble-fleck--a" aria-hidden="true"></span>
+            <span class="bubble-fleck bubble-fleck--b" aria-hidden="true"></span>
+            <img class="territory-stop__map" src="assets/images/territories/reunion.svg" alt="">
+            <span class="territory-stop__name">La Réunion</span>
+          </span>
+          <span class="visually-hidden">Afficher le projet réalisé à La Réunion</span>
+        </button>
+        <div class="territory-satellites" id="sat-reunion" hidden></div>
+      </div>
+
+      <!-- ===== Étape 3 : France ===== -->
+      <div class="territory-wrap" style="--stop-x: 38%; --stop-y: 42%;">
+        <button type="button" class="territory-stop" data-country="france" aria-expanded="false" aria-controls="sat-france">
+          <span class="territory-stop__bubble glass-card">
+            <span class="bubble-fleck bubble-fleck--a" aria-hidden="true"></span>
+            <span class="bubble-fleck bubble-fleck--b" aria-hidden="true"></span>
+            <img class="territory-stop__map" src="assets/images/territories/france.svg" alt="">
+            <span class="territory-stop__name">France</span>
+          </span>
+          <span class="visually-hidden">Afficher les projets réalisés en France</span>
+        </button>
+        <div class="territory-satellites" id="sat-france" hidden></div>
+      </div>
+
+      <!-- ===== Étape 4 : Corée du Sud ===== -->
+      <div class="territory-wrap" style="--stop-x: 74%; --stop-y: 66%;">
+        <button type="button" class="territory-stop" data-country="coree" aria-expanded="false" aria-controls="sat-coree">
+          <span class="territory-stop__bubble glass-card">
+            <span class="bubble-fleck bubble-fleck--a" aria-hidden="true"></span>
+            <span class="bubble-fleck bubble-fleck--b" aria-hidden="true"></span>
+            <img class="territory-stop__map" src="assets/images/territories/coree.svg" alt="">
+            <span class="territory-stop__name">Corée du Sud</span>
+          </span>
+          <span class="visually-hidden">Afficher le projet réalisé en Corée du Sud</span>
+        </button>
+        <div class="territory-satellites" id="sat-coree" hidden></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION COMPÉTENCES : outils classés par métier, avec
+       barre de progression visible directement (pas besoin de
+       cliquer), animée au scroll (voir assets/css/skills.css)
+       ============================================================ -->
+  <section id="competences" class="skills" aria-label="Outils et technologies maîtrisés">
+    <div class="container">
+      <div class="skills__intro">
+        <p class="eyebrow eyebrow--night" data-i18n="skills.eyebrow">La boîte à outils</p>
+        <h2 class="skills__title" data-i18n="skills.title">Outils &amp; technologies</h2>
+        <p class="skills__lead" data-i18n="skills.lead">
+          Classés par métier, avec mon niveau de maîtrise pour chacun.
+        </p>
+      </div>
+
+      <div class="skills__grid">
+
+        <div class="skills__category">
+          <h3 class="skills__category-title" data-i18n="skills.cat.gis">Cartographie &amp; SIG</h3>
+          <div class="skills__list">
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/qgis.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">QGIS</span>
+                  <span class="skill-item__level">85%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 85%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/osm.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">OpenStreetMap</span>
+                  <span class="skill-item__level">75%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 75%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/gee.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">Google Earth Engine</span>
+                  <span class="skill-item__level">60%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 60%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/sgbd.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">PostGIS</span>
+                  <span class="skill-item__level">65%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 65%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills__category">
+          <h3 class="skills__category-title" data-i18n="skills.cat.web">Développement web</h3>
+          <div class="skills__list">
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/php.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">PHP / Yii</span>
+                  <span class="skill-item__level">80%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 80%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/react.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">React</span>
+                  <span class="skill-item__level">65%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 65%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/javascript.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">JavaScript</span>
+                  <span class="skill-item__level">70%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 70%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/html-css.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">HTML / CSS</span>
+                  <span class="skill-item__level">80%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 80%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills__category">
+          <h3 class="skills__category-title" data-i18n="skills.cat.lang">Langages &amp; données</h3>
+          <div class="skills__list">
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/python.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">Python</span>
+                  <span class="skill-item__level">70%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 70%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/r-lang.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">R / RShiny</span>
+                  <span class="skill-item__level">55%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 55%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/java.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">Java</span>
+                  <span class="skill-item__level">50%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 50%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/mongodb.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">MongoDB</span>
+                  <span class="skill-item__level">60%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 60%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/sgbd.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">MySQL</span>
+                  <span class="skill-item__level">70%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 70%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills__category">
+          <h3 class="skills__category-title" data-i18n="skills.cat.tools">Outils &amp; gestion de projet</h3>
+          <div class="skills__list">
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/git.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">Git</span>
+                  <span class="skill-item__level">75%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 75%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <img class="skill-item__icon" src="assets/images/tools/docker.svg" alt="">
+              <div class="skill-item__info">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">Docker</span>
+                  <span class="skill-item__level">45%</span>
+                </div>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="--level: 45%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 </main>
 
+<!-- ============================================================
+     PIED DE PAGE : signature, liens de navigation, contact,
+     copyright et lien vers les mentions légales
+     ============================================================ -->
 <footer class="site-footer">
   <div class="site-footer__top">
     <div class="site-footer__brand">
       <p class="site-footer__signature" aria-hidden="true">Dinah Fanilontsoa</p>
       <p class="site-footer__tagline" data-i18n="footer.tagline">
-        Géomaticienne cartographe &amp; développeuse — un parcours entre
+        Géomaticienne cartographe &amp; développeuse, un parcours entre
         terrain et code, de Madagascar à la Corée du Sud.
       </p>
     </div>
@@ -115,7 +461,7 @@
       <div class="site-footer__col">
         <h3 data-i18n="footer.contact">Contact</h3>
         <ul>
-          <li><a href="mailto:contact@dinah-portfolio.example">contact@dinah-portfolio.example</a></li>
+          <li><a href="mailto:fanilontsoadinah@gmail.com">fanilontsoadinah@gmail.com</a></li>
           <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
         </ul>
@@ -143,5 +489,6 @@
 <script src="assets/js/i18n.js" defer></script>
 <script src="assets/js/landing.js" defer></script>
 <script src="assets/js/lightbox.js" defer></script>
+<script src="assets/js/journey.js" defer></script>
 </body>
 </html>
