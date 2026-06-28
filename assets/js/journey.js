@@ -100,8 +100,10 @@
     ],
     france: [
       { slug: "atopia", title: "Stage M2 ATOPIA, cartographie urbanisme", category: "professionnel" },
-      { slug: "resallience", title: "Étude RESALLIENCE (vulnérabilité climatique)", category: "academique" },
-      { slug: "analyse-spatiale", title: "Projets complémentaires en analyse spatiale", category: "academique" }
+      { slug: "dora-atopia", title: "DORA, outil de cartographie interactive", category: "professionnel" },
+      { slug: "pred-archeo", title: "Préd&rsquo;Archéo, prédiction archéologique", category: "academique" },
+      { slug: "recul-trait-cote", title: "Bâtiments menacés par le recul du trait de côte", category: "academique" },
+      { slug: "capa-taro-chim", title: "Capa, Taro &amp; Chim, les inédits de la guerre d&rsquo;Espagne", category: "academique" }
     ],
     coree: [
       { slug: "jeux-coreens", title: "Documentaire interactif sur les jeux coréens", category: "academique" }
@@ -110,9 +112,17 @@
 
   // Positions des bulles-satellites selon le nombre de projets.
   // Demande spécifique : 2 satellites à gauche / 2 à droite quand il y
-  // en a 4 (Madagascar), 2 à gauche / 1 à droite quand il y en a 3
-  // (France), et 1 seul à droite quand il n'y en a qu'un (Réunion, Corée).
+  // en a 4 (Madagascar), 3 à gauche / 2 à droite quand il y en a 5
+  // (France), 2 à gauche / 1 à droite quand il y en a 3, et 1 seul à
+  // droite quand il n'y en a qu'un (Réunion, Corée).
   const LAYOUTS = {
+    5: [
+      { x: -180, y: -110 },
+      { x: -180, y: 0 },
+      { x: -180, y: 110 },
+      { x: 180, y: -55 },
+      { x: 180, y: 55 }
+    ],
     4: [
       { x: -170, y: -70 },
       { x: -170, y: 70 },
@@ -129,9 +139,37 @@
     ]
   };
 
+  // Nombre maximum de satellites affichés en même temps autour d'un
+  // territoire. Au-delà, un tirage aléatoire de 4 projets est fait à
+  // chaque clic sur le territoire (pour éviter l'encombrement visuel
+  // sur les territoires qui accumulent beaucoup de projets, comme la
+  // France). Les projets non tirés restent accessibles via "Voir plus"
+  // (section #experiences) ou la grille "Tous les projets" en bas des
+  // pages projet.
+  const MAX_SATELLITES = 4;
+
+  /**
+   * Tire au hasard `count` éléments distincts d'un tableau, sans le
+   * modifier (mélange de Fisher-Yates sur une copie).
+   */
+  function pickRandom(array, count) {
+    const copy = array.slice();
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy.slice(0, count);
+  }
+
   function buildSatellites(country, container) {
-    const projects = PROJECTS[country] || [];
+    const allProjects = PROJECTS[country] || [];
     container.innerHTML = "";
+
+    // Au-delà de MAX_SATELLITES projets sur un territoire, on n'en
+    // affiche que MAX_SATELLITES, tirés au hasard à chaque ouverture.
+    const projects = allProjects.length > MAX_SATELLITES
+      ? pickRandom(allProjects, MAX_SATELLITES)
+      : allProjects;
 
     const positions = LAYOUTS[projects.length] || LAYOUTS[4];
 
@@ -154,7 +192,9 @@
 
     // Le bouton "voir plus" n'a de sens que s'il y a plusieurs projets
     // à découvrir : avec un seul projet (Réunion, Corée), on l'omet.
-    if (projects.length > 1) {
+    // Il reste utile même quand 4 satellites sont déjà affichés, car
+    // d'autres projets du même territoire peuvent ne pas être tirés.
+    if (allProjects.length > 1) {
       const more = document.createElement("a");
       more.href = "#experiences";
       more.className = "territory-more";

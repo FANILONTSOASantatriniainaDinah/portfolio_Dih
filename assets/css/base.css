@@ -71,3 +71,16 @@ a:focus-visible, button:focus-visible {
   padding: .75rem 1.25rem; z-index: 1000; font-weight: 600;
 }
 .skip-link:focus { left: 0; }
+
+/* ============================================================
+   CORRECTIF GLOBAL : .container est utilisée dans plusieurs pages
+   du site (projet.html, index.html...) mais n'était définie dans
+   AUCUN fichier CSS — d'où du contenu collé au bord de l'écran sur
+   grand écran à certains endroits. Définie ici une bonne fois pour
+   toutes, dans le fichier de base partagé par tout le site.
+   ============================================================ */
+.container {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}

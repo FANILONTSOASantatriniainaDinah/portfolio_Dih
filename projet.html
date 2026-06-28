@@ -33,9 +33,11 @@
   <div class="site-header__bar">
     <a href="index.html" class="logo">Dinah<span class="logo__dot">.</span></a>
     <nav class="site-header__nav" aria-label="Navigation principale">
-      <a href="index.html#parcours">Parcours</a>
-      <a href="index.html#competences">Compétences</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="index.html#parcours" data-i18n="nav.parcours">Parcours</a>
+      <a href="index.html#competences" data-i18n="nav.competences">Compétences</a>
+      <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+      <a href="assets/cv-dinah-fanilontsoa.pdf" class="cv-link" download data-i18n="nav.cv">CV ↓</a>
+      <button id="langToggle" class="lang-toggle" aria-label="Changer la langue">FR / EN</button>
     </nav>
   </div>
 </header>
@@ -44,19 +46,49 @@
 
   <!-- ===== FIL D'ARIANE : retour vers le pays d'origine du projet ===== -->
   <div class="project-breadcrumb container">
-    <a id="backLink" href="index.html#parcours" class="project-breadcrumb__link">← Retour au parcours</a>
+    <a id="backLink" href="index.html#parcours" class="project-breadcrumb__link" data-i18n="project.backlink">← Retour au parcours</a>
   </div>
 
   <!-- ===== EN-TÊTE DU PROJET : titre, catégorie, pays =====
        Le contenu de ces éléments est rempli par project.js -->
   <section class="project-hero">
     <div class="project-hero__glow" aria-hidden="true"></div>
+    <div class="project-hero__deco" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </div>
     <div class="container">
-      <span id="projectCategory" class="project-hero__category"></span>
-      <h1 id="projectTitle" class="project-hero__title">Chargement du projet…</h1>
-      <p id="projectSubtitle" class="project-hero__subtitle"></p>
+      <div>
+        <span id="projectCategory" class="project-hero__category"></span>
+        <h1 id="projectTitle" class="project-hero__title">Chargement du projet…</h1>
+        <p id="projectCoords" class="project-hero__coords"></p>
+        <p id="projectSubtitle" class="project-hero__subtitle"></p>
+      </div>
+      <div class="project-hero__visual-col">
+        <figure class="project-hero__visual" id="projectHeroVisual" hidden>
+          <img id="projectHeroVisualImg" src="" alt="">
+          <video id="projectHeroVisualVideo" hidden muted loop autoplay playsinline preload="metadata"></video>
+          <button type="button" class="project-hero__expand" id="projectHeroExpand" aria-label="Agrandir">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </figure>
+        <!-- Liens externes optionnels (GitLab, site mis en ligne...),
+             juste sous l'image/vidéo du hero : remplis par project.js,
+             vide si le projet n'en a pas. -->
+        <div id="projectHeroLinks" class="project-hero__links"></div>
+      </div>
     </div>
   </section>
+
+  <!-- ===== AGRANDISSEMENT du visuel du hero (image ou vidéo) =====
+       Dialog natif réutilisé pour tous les projets, rempli dynamiquement
+       par project.js selon le type de média du projet affiché. -->
+  <dialog id="heroMediaLightbox" class="hero-media-lightbox">
+    <button type="button" id="heroMediaLightboxClose" class="hero-media-lightbox__close" aria-label="Fermer">✕</button>
+    <img id="heroMediaLightboxImg" src="" alt="" hidden>
+    <video id="heroMediaLightboxVideo" hidden controls playsinline></video>
+  </dialog>
 
   <!-- ===== CORPS DU PROJET : description, stack technique, vidéo ===== -->
   <section class="project-body">
@@ -64,11 +96,15 @@
 
       <!-- Colonne principale : description détaillée -->
       <div class="project-body__main">
-        <h2 class="project-body__heading">Le projet</h2>
-        <p id="projectDescription" class="project-body__text"></p>
+        <div class="project-body__block">
+          <h2 class="project-body__heading" data-i18n="project.heading.project">Le projet</h2>
+          <p id="projectDescription" class="project-body__text"></p>
+        </div>
 
-        <h2 class="project-body__heading">Mon rôle</h2>
-        <p id="projectRole" class="project-body__text"></p>
+        <div class="project-body__block">
+          <h2 class="project-body__heading" data-i18n="project.heading.role">Mon rôle</h2>
+          <p id="projectRole" class="project-body__text"></p>
+        </div>
 
         <!-- ============================================================
              EMPLACEMENT VIDÉO — affiché uniquement pour le projet qui a
@@ -83,8 +119,8 @@
              pour la lecture elle-même, bonnes pratiques d'accessibilité
              et de performance respectées (controls, poster, preload léger).
              ============================================================ -->
-        <div id="projectVideoSection" class="project-video-section" hidden>
-          <h2 class="project-body__heading">Démonstration vidéo</h2>
+        <div id="projectVideoSection" class="project-video-section project-body__block" hidden>
+          <h2 class="project-body__heading" data-i18n="project.heading.video">Démonstration vidéo</h2>
           <div class="project-video">
             <video
               id="projectVideo"
@@ -103,30 +139,72 @@
 
       <!-- Colonne latérale : informations pratiques -->
       <aside class="project-body__side">
-        <div class="project-card-info glass-card">
-          <h3 class="project-card-info__title">Informations</h3>
-          <dl class="project-card-info__list">
-            <div>
-              <dt>Pays</dt>
-              <dd id="projectCountry"></dd>
-            </div>
-            <div>
-              <dt>Catégorie</dt>
-              <dd id="projectCategoryText"></dd>
-            </div>
-            <div>
-              <dt>Période</dt>
-              <dd id="projectPeriod"></dd>
-            </div>
-          </dl>
+        <!-- Carte Informations/Outils + globe regroupés dans un seul
+             bloc sticky : ils montent et s'arrêtent ensemble au scroll,
+             le globe ne peut donc plus passer sous la carte. -->
+        <div class="project-body__side-sticky">
+          <div class="project-card-info glass-card">
+            <h3 class="project-card-info__title" data-i18n="project.info.title">Informations</h3>
+            <dl class="project-card-info__list">
+              <div>
+                <dt data-i18n="project.info.country">Pays</dt>
+                <dd id="projectCountry"></dd>
+              </div>
+              <div>
+                <dt data-i18n="project.info.category">Catégorie</dt>
+                <dd id="projectCategoryText"></dd>
+              </div>
+              <div>
+                <dt data-i18n="project.info.period">Période</dt>
+                <dd id="projectPeriod"></dd>
+              </div>
+            </dl>
 
-          <h3 class="project-card-info__title">Outils utilisés</h3>
-          <ul id="projectTools" class="project-card-info__tools"></ul>
+            <h3 class="project-card-info__title" data-i18n="project.info.tools">Outils utilisés</h3>
+            <ul id="projectTools" class="project-card-info__tools"></ul>
+          </div>
+
+          <!-- Globe libre, sans carte/cadre autour -->
+          <div class="project-globe-card">
+            <div class="project-hero__globe" id="projectGlobe" aria-hidden="true">
+              <svg viewBox="0 0 200 200">
+                <circle class="project-hero__globe-sphere" cx="100" cy="100" r="92"/>
+                <ellipse class="project-hero__globe-grid" cx="100" cy="100" rx="92" ry="38"/>
+                <ellipse class="project-hero__globe-grid" cx="100" cy="100" rx="92" ry="68"/>
+                <line class="project-hero__globe-grid" x1="8" y1="100" x2="192" y2="100"/>
+                <line class="project-hero__globe-grid" x1="100" y1="8" x2="100" y2="192"/>
+                <ellipse class="project-hero__globe-grid" cx="100" cy="100" rx="38" ry="92"/>
+                <ellipse class="project-hero__globe-grid" cx="100" cy="100" rx="68" ry="92"/>
+                <g id="projectGlobePin">
+                  <circle class="project-hero__globe-pin-ring" cx="100" cy="60" r="6"/>
+                  <circle class="project-hero__globe-pin" cx="100" cy="60" r="4.5"/>
+                </g>
+              </svg>
+            </div>
+            <p class="project-globe-card__coords" id="projectGlobeCoords"></p>
+          </div>
         </div>
       </aside>
 
     </div>
   </section>
+
+  <!-- Indice de scroll flottant : reste visible (position fixed) tant
+       que la section "Tous les projets" n'est pas atteinte, pour
+       inciter à descendre la découvrir. Se masque automatiquement une
+       fois la section en vue (voir initScrollCue dans project.js). -->
+  <a href="#allProjectsSection" id="projectScrollCue" class="project-scroll-cue" aria-label="Découvrir tous les projets en défilant">
+    <span class="project-scroll-cue__compass" aria-hidden="true">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+        <g class="project-scroll-cue__needle">
+          <path d="M20 7 L23 20 L20 33 L17 20 Z" fill="currentColor" opacity="0.85"/>
+        </g>
+        <circle cx="20" cy="20" r="2" fill="currentColor"/>
+      </svg>
+    </span>
+    <span class="project-scroll-cue__label" data-i18n="project.scrollcue">Tous les projets sont juste en bas</span>
+  </a>
 
   <!-- ============================================================
        SECTION "TOUS LES PROJETS" — affichée en bas de chaque page
@@ -136,18 +214,41 @@
        de PROJECT_DATA (assets/js/project-data.js), donc cette
        liste reste toujours à jour automatiquement.
        ============================================================ -->
-  <section class="all-projects" aria-label="Tous les projets">
+  <section id="allProjectsSection" class="all-projects" aria-label="Tous les projets">
     <div class="container">
       <div class="all-projects__intro">
         <p class="eyebrow">Tous les projets</p>
         <h2 class="all-projects__title" data-i18n="allprojects.title">Explorer le reste du parcours</h2>
       </div>
 
-      <!-- Boutons de filtre par catégorie -->
-      <div class="all-projects__filters" role="group" aria-label="Filtrer les projets par catégorie">
-        <button type="button" class="filter-btn is-active" data-filter="all" data-i18n="allprojects.filter.all">Tous</button>
-        <button type="button" class="filter-btn" data-filter="academique" data-i18n="allprojects.filter.academique">Académique</button>
-        <button type="button" class="filter-btn" data-filter="professionnel" data-i18n="allprojects.filter.professionnel">Professionnel</button>
+      <!-- Filtres et tri de la grille "Tous les projets" -->
+      <div class="all-projects__controls">
+        <div class="all-projects__filters" role="group" aria-label="Filtrer les projets par catégorie">
+          <button type="button" class="filter-btn is-active" data-filter="all" data-i18n="allprojects.filter.all">Tous</button>
+          <button type="button" class="filter-btn" data-filter="academique" data-i18n="allprojects.filter.academique">Académique</button>
+          <button type="button" class="filter-btn" data-filter="professionnel" data-i18n="allprojects.filter.professionnel">Professionnel</button>
+        </div>
+
+        <div class="all-projects__selects">
+          <label class="all-projects__select-label">
+            <span data-i18n="allprojects.country.label" class="visually-hidden">Pays</span>
+            <select id="countryFilter" class="all-projects__select" aria-label="Filtrer par pays">
+              <option value="all" data-i18n="allprojects.country.all">Tous les pays</option>
+              <option value="madagascar" data-i18n="allprojects.country.madagascar">Madagascar</option>
+              <option value="reunion" data-i18n="allprojects.country.reunion">La Réunion</option>
+              <option value="france" data-i18n="allprojects.country.france">France</option>
+              <option value="coree" data-i18n="allprojects.country.coree">Corée du Sud</option>
+            </select>
+          </label>
+
+          <label class="all-projects__select-label">
+            <span data-i18n="allprojects.sort.label" class="visually-hidden">Trier</span>
+            <select id="sortOrder" class="all-projects__select" aria-label="Trier les projets">
+              <option value="recent" data-i18n="allprojects.sort.recent">Plus récents</option>
+              <option value="oldest" data-i18n="allprojects.sort.oldest">Plus anciens</option>
+            </select>
+          </label>
+        </div>
       </div>
 
       <!-- Grille remplie dynamiquement par project.js -->
@@ -198,6 +299,7 @@
 <script src="assets/js/i18n-dict.js" defer></script>
 <script src="assets/js/i18n.js" defer></script>
 <script src="assets/js/project-data.js" defer></script>
+<script src="assets/js/pa-widget.js" defer></script>
 <script src="assets/js/project.js" defer></script>
 </body>
 </html>

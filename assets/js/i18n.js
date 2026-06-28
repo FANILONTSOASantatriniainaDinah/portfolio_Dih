@@ -55,6 +55,11 @@
     }
 
     storeLang(lang);
+
+    // Permet à d'autres scripts (ex: project.js, pour la grille "Tous
+    // les projets" générée dynamiquement) de réagir au changement de
+    // langue sans que i18n.js ait besoin de connaître leur existence.
+    document.dispatchEvent(new CustomEvent("portfolio:langchange", { detail: { lang } }));
   }
 
   function initLang() {
