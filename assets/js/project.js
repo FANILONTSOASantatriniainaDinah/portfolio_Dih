@@ -44,9 +44,11 @@
     "html-css": "HTML / CSS",
     python: "Python",
     r: "R",
+    shiny: "R Shiny",
     git: "Git",
     osm: "OpenStreetMap",
-    sgbd: "Bases de données"
+    sgbd: "PostgreSQL",
+    mongodb: "MongoDB"
   };
 
   // Coordonnées approximatives par pays, affichées sous le titre
@@ -70,6 +72,14 @@
   function getSlugFromUrl() {
     const params = new URLSearchParams(window.location.search);
     return params.get("slug");
+  }
+
+  // Permet d'arriver sur la grille "Tous les projets" déjà filtrée par
+  // pays (ex: lien "Voir plus →" depuis une bulle territoire de
+  // l'accueil : projet.html?slug=...&country=coree#allProjectsSection).
+  function getCountryFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("country");
   }
 
   function renderNotFound() {
@@ -513,6 +523,17 @@
     // La liste "Tous les projets" et ses filtres sont toujours
     // affichés en bas de page, même si le projet demandé est introuvable.
     renderAllProjects(slug);
+
+    // Pré-sélectionne le filtre pays si l'URL en porte un (lien "Voir
+    // plus →" depuis une bulle territoire de l'accueil), avant
+    // d'activer les filtres pour que ce choix soit pris en compte dès
+    // le premier rendu de la grille.
+    const countryParam = getCountryFromUrl();
+    const countrySelect = document.getElementById("countryFilter");
+    if (countryParam && countrySelect && [...countrySelect.options].some((o) => o.value === countryParam)) {
+      countrySelect.value = countryParam;
+    }
+
     initProjectFilters();
     initHeroMediaLightbox();
     initScrollCue();

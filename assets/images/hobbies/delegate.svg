@@ -1,0 +1,12 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Déléguée de classe">
+  <circle cx="32" cy="32" r="30" fill="#b86830" opacity=".16"/>
+  <g fill="none" stroke="#8f4f22" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 28 l18 -7 v18 l-18 -7 z" fill="#b86830" stroke="none"/>
+    <path d="M34 21 l12 -4 v22 l-12 -4"/>
+    <path d="M20 32 v8 a3 3 0 0 0 3 3 h2 a3 3 0 0 0 3 -3 v-6"/>
+  </g>
+  <g stroke="#284139" stroke-width="2" stroke-linecap="round" opacity=".5">
+    <path d="M48 24 q4 1 4 6"/>
+    <path d="M48 30 q6 1 6 8"/>
+  </g>
+</svg>

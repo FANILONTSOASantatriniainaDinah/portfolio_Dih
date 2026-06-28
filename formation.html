@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Formation, Dinah Fanilontsoa</title>
+<meta name="description" content="Parcours de formation de FANILONTSOA Santatriniaina Dinah, du lycée au Master 2, géomaticienne cartographe et développeuse.">
+
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/header.css">
+<link rel="stylesheet" href="assets/css/project.css">
+<link rel="stylesheet" href="assets/css/formation.css">
+<link rel="stylesheet" href="assets/css/footer.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link" data-i18n="skip">Aller au contenu principal</a>
+
+<!-- ===== EN-TÊTE (identique aux autres pages, pour rester cohérent) ===== -->
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="index.html" class="logo">Dinah<span class="logo__dot">.</span></a>
+    <div class="site-header__right">
+      <nav class="site-header__nav" id="siteNav" aria-label="Navigation principale">
+        <a href="index.html#parcours" data-i18n="nav.parcours">Parcours</a>
+        <a href="index.html#competences" data-i18n="nav.competences">Compétences</a>
+        <a href="formation.html" data-i18n="nav.formation" aria-current="page">Formation</a>
+      </nav>
+      <a href="assets/cv-dinah-fanilontsoa.pdf" class="cv-link" download data-i18n="nav.cv">CV ↓</a>
+      <button id="langToggle" class="lang-toggle" aria-label="Changer la langue">FR / EN</button>
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="siteNav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ===== FIL D'ARIANE ===== -->
+  <div class="project-breadcrumb container">
+    <a href="index.html" class="project-breadcrumb__link" data-i18n="formation.backlink">← Retour à l'accueil</a>
+  </div>
+
+  <!-- ===== EN-TÊTE DE PAGE ===== -->
+  <section class="formation-hero">
+    <!-- Décor flottant : formes douces façon constellation académique -->
+    <div class="formation-hero__deco" aria-hidden="true">
+      <span class="formation-hero__shape formation-hero__shape--1"></span>
+      <span class="formation-hero__shape formation-hero__shape--2"></span>
+      <span class="formation-hero__shape formation-hero__shape--3"></span>
+      <svg class="formation-hero__spark formation-hero__spark--1" viewBox="0 0 24 24"><path d="M12 2 L13.5 9.5 L21 11 L13.5 12.5 L12 20 L10.5 12.5 L3 11 L10.5 9.5 Z"/></svg>
+      <svg class="formation-hero__spark formation-hero__spark--2" viewBox="0 0 24 24"><path d="M12 2 L13.5 9.5 L21 11 L13.5 12.5 L12 20 L10.5 12.5 L3 11 L10.5 9.5 Z"/></svg>
+    </div>
+    <div class="container">
+      <h1 class="formation-hero__title" data-i18n="formation.title">Formation</h1>
+      <p class="formation-hero__lead" data-i18n="formation.lead">
+        Du lycée à aujourd'hui : mon parcours académique en géomatique, télédétection et développement web.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== FRISE DU PARCOURS ACADÉMIQUE =====
+       Du plus récent (Master 2 CMW, en cours) au plus ancien
+       (baccalauréat). Contenu statique : pas besoin de passer par
+       project-data.js, il n'y a qu'une seule page. Révélée au
+       scroll + ligne de progression animée (voir assets/js/formation.js). -->
+  <section class="formation-timeline">
+    <div class="container">
+      <ol class="formation-list" id="formationList">
+        <li class="formation-list__progress" aria-hidden="true"><span id="formationProgress"></span></li>
+
+        <li class="formation-item formation-item--current">
+          <p class="formation-item__period">2025 – 2026</p>
+          <div class="formation-item__card glass-card">
+            <h2 class="formation-item__degree" data-i18n="formation.cmw.degree">Master 2, Culture et Métiers du Web (CMW)</h2>
+            <p class="formation-item__school" data-i18n="formation.cmw.school">Université Gustave Eiffel, Bâtiment Bois de l&rsquo;Étang</p>
+            <p class="formation-item__detail" data-i18n="formation.cmw.detail">Domaine Sciences Humaines et Sociales (SHS)</p>
+            <span class="formation-item__badge" data-i18n="formation.cmw.badge">En cours</span>
+          </div>
+        </li>
+
+        <li class="formation-item">
+          <p class="formation-item__period">2024 – 2025</p>
+          <div class="formation-item__card glass-card">
+            <h2 class="formation-item__degree" data-i18n="formation.igast.degree">Master 2, Information Géographique : Analyse Spatiale et Télédétection (IGAST)</h2>
+            <p class="formation-item__school" data-i18n="formation.igast.school">École Nationale des Sciences Géographiques (ENSG), Université Gustave Eiffel</p>
+          </div>
+        </li>
+
+        <li class="formation-item">
+          <p class="formation-item__period">2023 – 2024</p>
+          <div class="formation-item__card glass-card">
+            <h2 class="formation-item__degree" data-i18n="formation.m2sig.degree">Master II, Système d&rsquo;Information Géomatique et Décision</h2>
+            <p class="formation-item__school" data-i18n="formation.m2sig.school">École de Management et d&rsquo;Innovation Technologique (EMIT), Fianarantsoa, Madagascar</p>
+          </div>
+        </li>
+
+        <li class="formation-item">
+          <p class="formation-item__period">2022 – 2023</p>
+          <div class="formation-item__card glass-card">
+            <h2 class="formation-item__degree" data-i18n="formation.licence.degree">Licence professionnelle en Informatique</h2>
+            <p class="formation-item__school" data-i18n="formation.licence.school">École de Management et d&rsquo;Innovation Technologique (EMIT), Fianarantsoa, Madagascar</p>
+            <p class="formation-item__detail" data-i18n="formation.licence.detail">Mention Bien</p>
+          </div>
+        </li>
+
+        <li class="formation-item">
+          <p class="formation-item__period">2018 – 2019</p>
+          <div class="formation-item__card glass-card">
+            <h2 class="formation-item__degree" data-i18n="formation.bac.degree">Baccalauréat, série C</h2>
+            <p class="formation-item__school" data-i18n="formation.bac.school">Lycée Rakotoarisoa, Ambositra (Madagascar)</p>
+            <p class="formation-item__detail" data-i18n="formation.bac.detail">Mention Assez-bien</p>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== CENTRES D'INTÉRÊT & ENGAGEMENT =====
+       Trois loisirs (chant, danse, lecture) + un engagement constant
+       (déléguée de classe depuis la 2e année de licence jusqu'au
+       Master 2), illustrés par des icônes maison (assets/images/hobbies). -->
+  <section class="formation-hobbies">
+    <div class="container">
+      <h2 class="formation-hobbies__title" data-i18n="formation.hobbies.title">Centres d&rsquo;intérêt &amp; engagement</h2>
+      <p class="formation-hobbies__lead" data-i18n="formation.hobbies.lead">À côté des cartes et du code :</p>
+
+      <div class="formation-hobbies__grid">
+        <div class="hobby-card">
+          <img class="hobby-card__icon" src="assets/images/hobbies/singing.svg" alt="">
+          <h3 class="hobby-card__title" data-i18n="formation.hobbies.sing.title">Chant</h3>
+          <p class="hobby-card__detail" data-i18n="formation.hobbies.sing.detail">J&rsquo;aime chanter, en toute occasion.</p>
+        </div>
+        <div class="hobby-card">
+          <img class="hobby-card__icon" src="assets/images/hobbies/dancing.svg" alt="">
+          <h3 class="hobby-card__title" data-i18n="formation.hobbies.dance.title">Danse</h3>
+          <p class="hobby-card__detail" data-i18n="formation.hobbies.dance.detail">Un peu de danse, pour le plaisir.</p>
+        </div>
+        <div class="hobby-card">
+          <img class="hobby-card__icon" src="assets/images/hobbies/reading.svg" alt="">
+          <h3 class="hobby-card__title" data-i18n="formation.hobbies.reading.title">Lecture</h3>
+          <p class="hobby-card__detail" data-i18n="formation.hobbies.reading.detail">J&rsquo;aime lire, dès que j&rsquo;ai un moment.</p>
+        </div>
+      </div>
+
+      <div class="engagement-card glass-card">
+        <img class="engagement-card__icon" src="assets/images/hobbies/delegate.svg" alt="">
+        <div class="engagement-card__body">
+          <h3 class="engagement-card__title" data-i18n="formation.engagement.title">Déléguée de classe</h3>
+          <p class="engagement-card__detail" data-i18n="formation.engagement.detail">
+            De la 2<sup>e</sup> année de licence à l&rsquo;EMIT jusqu&rsquo;au Master 2, j&rsquo;ai
+            toujours été déléguée de ma classe : un engagement constant tout au long de mon parcours.
+          </p>
+        </div>
+        <span class="engagement-card__badge" data-i18n="formation.engagement.badge">Depuis 2021</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== PIED DE PAGE (identique aux autres pages) ===== -->
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div class="site-footer__brand">
+      <p class="site-footer__signature" aria-hidden="true">Dinah Fanilontsoa</p>
+      <p class="site-footer__tagline" data-i18n="footer.tagline">
+        Géomaticienne cartographe &amp; développeuse, un parcours entre
+        terrain et code, de Madagascar à la Corée du Sud.
+      </p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Navigation du pied de page">
+      <div class="site-footer__col">
+        <h3 data-i18n="footer.explore">Explorer</h3>
+        <ul>
+          <li><a href="index.html#parcours" data-i18n="nav.parcours">Parcours</a></li>
+          <li><a href="index.html#competences" data-i18n="nav.competences">Compétences</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col" id="footer-contact">
+        <h3 data-i18n="footer.contact">Contact</h3>
+        <ul>
+          <li><a href="mailto:fanilontsoadinah@gmail.com">fanilontsoadinah@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="site-footer__bottom">
+    <p>© 2026 FANILONTSOA Santatriniaina Dinah.</p>
+    <a href="mentions-legales.html" data-i18n="footer.legal">Mentions légales</a>
+  </div>
+</footer>
+
+<script src="assets/js/i18n-dict.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/header.js" defer></script>
+<script src="assets/js/formation.js" defer></script>
+</body>
+</html>

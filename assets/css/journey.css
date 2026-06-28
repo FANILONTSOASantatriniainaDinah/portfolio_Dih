@@ -98,8 +98,8 @@
   z-index: 2;
   max-width: 1000px;
   margin-inline: auto;
-  aspect-ratio: 4 / 3;
-  max-height: 760px;
+  aspect-ratio: 4 / 2.2;
+  max-height: 580px;
   margin-bottom: 2rem;
 }
 
@@ -360,6 +360,18 @@
     padding-block: 2rem;
   }
   .journey__connector { display: none; }
+  /* CORRECTIF : seul .territory-stop (le bouton) était repassé en
+     position relative ici — .territory-wrap (le conteneur, qui porte
+     réellement le position:absolute + top/left en %) restait absolu,
+     donc les 4 bulles s'empilaient toutes au même endroit au lieu de
+     suivre l'ordre vertical du flex column ci-dessus. */
+  .territory-wrap {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+
   .territory-stop {
     position: relative;
     top: auto !important;

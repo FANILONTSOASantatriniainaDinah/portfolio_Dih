@@ -30,13 +30,11 @@ const PROJECT_DATA = {
       "MADATLAS est un projet de cartographie participative mené dans le cadre " +
       "d'un chantier école. L'objectif : recenser et représenter les pratiques " +
       "genrées de l'espace public à Fianarantsoa, à partir d'enquêtes de terrain " +
-      "et de relevés géolocalisés. (Contenu fictif à préciser avec le vrai " +
-      "déroulé du projet.)",
+      "et de relevés géolocalisés.",
     descriptionEn:
       "MADATLAS is a participatory mapping project carried out as part of a " +
       "field school. The goal: identify and map gendered uses of public space " +
-      "in Fianarantsoa, based on field surveys and geolocated data collection. " +
-      "(Placeholder content, to be refined with the actual project details.)",
+      "in Fianarantsoa, based on field surveys and geolocated data collection.",
     role:
       "J'ai participé à la collecte des données sur le terrain, à leur " +
       "structuration dans une base SIG, puis à la réalisation des cartes " +
@@ -61,13 +59,11 @@ const PROJECT_DATA = {
     description:
       "Mise en place d'une pompe à eau solaire (E-tiala) en collaboration avec " +
       "une équipe de stagiaires venus du Québec. Le projet visait à fournir un " +
-      "accès à l'eau potable autonome en énergie pour une communauté rurale. " +
-      "(Contenu fictif à préciser.)",
+      "accès à l'eau potable autonome en énergie pour une communauté rurale.",
     descriptionEn:
       "Installation of a solar-powered water pump (E-tiala) in collaboration " +
       "with a team of interns from Quebec. The project aimed to provide an " +
-      "energy-autonomous source of drinking water for a rural community. " +
-      "(Placeholder content, to be refined.)",
+      "energy-autonomous source of drinking water for a rural community.",
     role:
       "Accompagnatrice du projet : coordination logistique sur place, appui à " +
       "la communication entre les équipes locales et les stagiaires canadiens.",
@@ -91,13 +87,11 @@ const PROJECT_DATA = {
     description:
       "Application web permettant de localiser des restaurants et des parcs " +
       "d'attractions à partir des données ouvertes d'OpenStreetMap. Carte " +
-      "interactive, fiches détaillées par lieu, filtres de recherche. " +
-      "(Contenu fictif, à détailler avec les vraies fonctionnalités.)",
+      "interactive, fiches détaillées par lieu, filtres de recherche.",
     descriptionEn:
       "Web application for locating restaurants and amusement parks using " +
       "open data from OpenStreetMap. Interactive map, detailed listing pages, " +
-      "and search filters. (Placeholder content, to be detailed with the " +
-      "actual features.)",
+      "and search filters.",
     role:
       "Développement complet du front-end avec React, intégration de l'API " +
       "OpenStreetMap pour l'affichage de la carte et des points d'intérêt.",
@@ -121,13 +115,11 @@ const PROJECT_DATA = {
     description:
       "Conception et réalisation du site vitrine de l'entreprise ITDC Mada, " +
       "dans le cadre d'un stage de licence. Le site présente les activités de " +
-      "l'entreprise et ses services. (Contenu fictif à compléter avec le " +
-      "véritable périmètre du stage.)",
+      "l'entreprise et ses services.",
     descriptionEn:
       "Design and development of the showcase website for ITDC Mada, as part " +
       "of an undergraduate internship. The site presents the company's " +
-      "activities and services. (Placeholder content, to be completed with " +
-      "the actual scope of the internship.)",
+      "activities and services.",
     role:
       "Développement du site avec le framework CodeIgniter (PHP) : structure " +
       "des pages, formulaires de contact, mise en page responsive.",
@@ -186,7 +178,7 @@ const PROJECT_DATA = {
       "they like to get their own page, already populated with prepared building blocks. On " +
       "the other hand, implementing OSM data import/export features and database cleanup " +
       "scripts (detecting duplicates and unwanted content) for interoperability purposes.",
-    tools: ["php", "sgbd", "osm"],
+    tools: ["php", "mongodb", "osm"],
     hasVideo: false,
     image: "assets/images/projects/costum-pages.png",
     links: [
@@ -210,14 +202,12 @@ const PROJECT_DATA = {
       "Stage de fin d'études au sein de l'agence ATOPIA (Paris 11e). Mission : " +
       "optimiser un outil de traitement, d'analyse et de cartographie de " +
       "données spatialisées, utilisé pour des projets d'urbanisme, " +
-      "d'architecture et de paysage. (Contenu fictif à compléter avec le " +
-      "détail réel du stage.)",
+      "d'architecture et de paysage.",
     descriptionEn:
       "End-of-studies internship at the ATOPIA agency (Paris 11th " +
       "arrondissement). Mission: optimize a tool for processing, analyzing " +
       "and mapping spatial data, used for urban planning, architecture and " +
-      "landscape projects. (Placeholder content, to be completed with the " +
-      "actual scope of the internship.)",
+      "landscape projects.",
     role:
       "Amélioration des scripts de traitement de données géospatiales et " +
       "production de cartes pour accompagner les équipes projet.",
@@ -277,7 +267,7 @@ const PROJECT_DATA = {
       "replacing manual INSEE code entry with a single identifier tied to the mission number " +
       "(updating the mission/municipality correspondence table accordingly), and starting to " +
       "update the statistical database with the 2022 census data.",
-    tools: ["r", "sgbd", "git"],
+    tools: ["r", "shiny", "sgbd", "git"],
     hasVideo: false,
     heroVideo: "",
     heroVideoPoster: "assets/images/projects/poster.jpg",
@@ -430,38 +420,47 @@ const PROJECT_DATA = {
     countryLabel: "Corée du Sud",
     countryLabelEn: "South Korea",
     category: "academique",
-    title: "Documentaire interactif sur les jeux coréens",
-    titleEn: "Interactive documentary on Korean games",
-    subtitle: "Projet créatif autour de la culture ludique coréenne",
-    subtitleEn: "Creative project on Korean gaming culture",
-    period: "À venir",
+    title: "Quand la Corée Joue, documentaire interactif sur les jeux coréens",
+    titleEn: "When Korea Plays, an interactive documentary on Korean games",
+    subtitle: "Web-documentaire interactif, projet de Master en équipe de dix",
+    subtitleEn: "Interactive web-documentary, Master's team project of ten",
+    period: "2025 - 2026",
     description:
-      "Documentaire interactif présentant différents jeux traditionnels et " +
-      "populaires coréens, pensé comme une expérience web immersive mêlant " +
-      "vidéo, illustrations et navigation interactive. " +
-      "(Contenu fictif : projet à détailler une fois réalisé.)",
+      "Quand la Corée Joue est un web-documentaire interactif explorant les jeux traditionnels " +
+      "et populaires coréens à travers les lieux où l'on y joue, plutôt que par chronologie. " +
+      "L'utilisateur incarne un personnage parmi quatre générations, chacune associée à un " +
+      "trigramme du Taegeukgi, et progresse sur un plateau de jeu 3D isométrique où chaque " +
+      "génération débloque des chapitres associant mini-documentaires vidéo et citations à " +
+      "collecter. Une page « Où l'on joue » propose en parallèle un parcours narratif en 2.5D " +
+      "au scroll, qui bascule en véritable 3D temps réel dans sa séquence finale. Réalisé en " +
+      "équipe de dix dans le cadre d'un Master, avec une direction artistique cohérente " +
+      "(palette orange, lime, lavande, bleu) visant un rendu sobre et documentaire.",
     descriptionEn:
-      "Interactive documentary presenting various traditional and popular " +
-      "Korean games, designed as an immersive web experience combining " +
-      "video, illustrations and interactive navigation. (Placeholder " +
-      "content: project to be detailed once completed.)",
+      "When Korea Plays is an interactive web-documentary exploring traditional and popular " +
+      "Korean games through the places where they are played, rather than through chronology. " +
+      "The user picks a character from one of four generations, each tied to a Taegeukgi " +
+      "trigram, and progresses across an isometric 3D game board where each generation " +
+      "unlocks chapters pairing short documentary videos with quotes to collect. A \"Where We " +
+      "Play\" page offers in parallel a scroll-driven 2.5D narrative journey, switching to " +
+      "real-time 3D for its final sequence. Built by a team of ten as part of a Master's " +
+      "program, with a consistent art direction (orange, lime, lavender, blue palette) aiming " +
+      "for a sober, documentary feel.",
     role:
-      "Conception du parcours interactif et réalisation du contenu " +
-      "multimédia (à préciser).",
+      "Au sein d'une équipe de quatre développeurs, j'ai conçu et développé la page « À propos » " +
+      "(présentation de l'équipe, mise en page façon cartes à jouer) et la page « Liste des " +
+      "jeux » (carousel infini de fiches, recherche). J'ai aussi contribué aux réflexions de " +
+      "conception des autres pages (parcours narratif, plateau 3D, direction artistique) avec " +
+      "Francky R. et Babylone I.",
     roleEn:
-      "Design of the interactive journey and production of the multimedia " +
-      "content (to be detailed).",
-    tools: ["javascript", "html-css"],
-
-    // === Vidéo DORA ===
-    // Seul ce projet affiche le bloc vidéo sur sa page de détail.
-    // Une fois le fichier vidéo prêt (rendu attendu lundi selon la consigne
-    // du professeur), il suffit de :
-    //  1) déposer le fichier .mp4 dans assets/video/ (ex: assets/video/dora.mp4)
-    //  2) remplacer la ligne videoSrc ci-dessous par : videoSrc: "assets/video/dora.mp4",
-    hasVideo: true,
-    videoSrc: "",
-    videoCaption: "Vidéo de présentation DORA, à intégrer après réalisation."
+      "Within a team of four developers, I designed and built the \"About\" page (team " +
+      "presentation, playing-card-style layout) and the \"Game list\" page (infinite card " +
+      "carousel, search). I also contributed to design discussions on the site's other pages " +
+      "(narrative journey, 3D board, art direction) with Francky R. and Babylone I.",
+    tools: ["react", "javascript", "html-css"],
+    hasVideo: false,
+    image: "assets/images/projects/noli.png",
+    links: [{ href: "https://noli.mastercmw.com/home", labelKey: "project.visitsite" }],
+    interactive: null
   }
 
 };

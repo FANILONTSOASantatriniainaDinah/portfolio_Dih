@@ -97,9 +97,29 @@ main#main-content {
   0% { opacity: .4; transform: scale(.4); }
   80%, 100% { opacity: 0; transform: scale(2.2); }
 }
+.project-hero__spark {
+  position: absolute;
+  width: 16px; height: 16px;
+  fill: var(--earth);
+  opacity: .4;
+  animation: heroSparkSpin 8s linear infinite, heroSparkFloat 6.5s var(--ease) infinite;
+}
+.project-hero__spark--1 { left: 22%; top: 14%; animation-delay: .4s; }
+.project-hero__spark--2 {
+  right: 18%; bottom: 18%; width: 13px; height: 13px;
+  fill: var(--wasabi);
+  animation-delay: 2.2s;
+}
+@keyframes heroSparkSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes heroSparkFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .project-hero__deco span,
-  .project-hero__deco span::after { animation: none; }
+  .project-hero__deco span::after,
+  .project-hero__spark { animation: none; }
 }
 @media (max-width: 700px) {
   .project-hero__deco { display: none; }
@@ -480,26 +500,33 @@ main#main-content {
 
 /* ---------- Corps de page : description + colonne latérale ---------- */
 .project-body {
-  padding-block: 1rem 6rem;
+  padding-block: 1rem 2.5rem;
 }
 
 /* ---------- Indice de scroll flottant vers "Tous les projets" ----------
-   Reste ancré au centre de l'écran (position fixed) tant que la
-   section cible n'est pas en vue, pour rester visible quel que soit
-   l'endroit où on se trouve sur la page projet. Masqué via la classe
-   is-hidden, posée par initScrollCue (project.js) quand la section
-   "Tous les projets" entre dans le viewport. */
+   Reste ancré en bas à droite (position fixed) tant que la section
+   cible n'est pas en vue, pour rester visible quel que soit l'endroit
+   où on se trouve sur la page projet. Masqué via la classe is-hidden,
+   posée par initScrollCue (project.js) quand la section "Tous les
+   projets" entre dans le viewport.
+   CORRECTIF : centré au milieu du viewport à l'origine, il finissait
+   régulièrement par recouvrir le texte de la colonne principale (plus
+   large que la colonne latérale, le vrai centre visuel du contenu
+   n'est jamais exactement au centre de l'écran) — repris en bouton
+   flottant ancré au coin, comme un FAB classique, à toutes les
+   largeurs. */
 .project-scroll-cue {
   position: fixed;
-  left: 50%;
-  bottom: 2.2rem;
-  transform: translateX(-50%);
+  left: auto;
+  right: 1.4rem;
+  bottom: 1.6rem;
+  transform: none;
   z-index: 40;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: .3rem;
-  padding: .9rem 1.4rem;
+  gap: .5rem;
+  padding: .75rem 1.1rem;
   border-radius: 999px;
   background: var(--glass-fill-strong);
   border: 1px solid var(--glass-border);
@@ -516,19 +543,19 @@ main#main-content {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateX(-50%) translateY(12px);
+  transform: translateY(12px);
 }
 @keyframes projectScrollCueFloat {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-8px); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 .project-scroll-cue.is-hidden,
 .project-scroll-cue.is-hidden:hover {
   animation: none;
 }
 .project-scroll-cue__compass {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   display: block;
   color: var(--earth-deep);
   transition: transform .3s var(--ease);
@@ -555,10 +582,19 @@ main#main-content {
   .project-scroll-cue { animation: none; }
   .project-scroll-cue__needle { animation: none; }
 }
+@media (max-width: 860px) {
+  .project-scroll-cue {
+    right: 1.1rem;
+    bottom: 1.3rem;
+    padding: .6rem .9rem;
+  }
+  .project-scroll-cue__compass { width: 26px; height: 26px; }
+  .project-scroll-cue__label { font-size: .68rem; }
+}
+
 @media (max-width: 600px) {
-  .project-scroll-cue { bottom: 1.3rem; padding: .7rem 1.1rem; }
-  .project-scroll-cue__compass { width: 30px; height: 30px; }
-  .project-scroll-cue__label { font-size: .72rem; }
+  .project-scroll-cue__label { display: none; }
+  .project-scroll-cue { padding: .65rem; border-radius: 50%; }
 }
 
 .project-body__grid {
@@ -818,9 +854,25 @@ main#main-content {
 /* globe libre, sans cadre ni fond de carte autour — repositionné
    depuis le hero, sous Informations/Outils */
 .project-globe-card {
+  position: relative;
   margin-top: 1.6rem;
   padding-block: .4rem;
   text-align: center;
+}
+.project-globe-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle, rgba(184,104,48,.18), transparent 65%);
+  animation: globeGlowPulse 4s ease-in-out infinite;
+}
+@keyframes globeGlowPulse {
+  0%, 100% { opacity: .6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-globe-card::before { animation: none; }
 }
 .project-globe-card__coords {
   margin-top: .9rem;
@@ -851,8 +903,45 @@ main#main-content {
    ============================================================ */
 
 .all-projects {
-  padding-block: 4.5rem 5.5rem;
+  position: relative;
+  padding-block: 2.5rem 5.5rem;
+  overflow: hidden;
+  isolation: isolate;
 }
+
+.all-projects__deco { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.all-projects__shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  animation: allProjectsFloat 9.5s var(--ease) infinite;
+}
+.all-projects__shape--1 {
+  width: 90px; height: 90px; left: 8%; top: 6%;
+  background: radial-gradient(circle, rgba(184,104,48,.16), transparent 70%);
+}
+.all-projects__shape--2 {
+  width: 60px; height: 60px; right: 12%; top: 18%;
+  background: radial-gradient(circle, rgba(128,144,118,.2), transparent 70%);
+  animation-delay: 1.8s;
+}
+.all-projects__spark {
+  position: absolute;
+  width: 16px; height: 16px;
+  right: 26%; bottom: 8%;
+  fill: var(--wasabi);
+  opacity: .4;
+  animation: heroSparkSpin 8s linear infinite, allProjectsFloat 7s var(--ease) infinite;
+}
+@keyframes allProjectsFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .all-projects__shape, .all-projects__spark { animation: none; }
+}
+
+.all-projects .container { position: relative; z-index: 1; }
 
 .all-projects__intro {
   text-align: center;
@@ -964,14 +1053,27 @@ main#main-content {
 }
 
 .project-mini-card {
+  position: relative;
   display: block;
   padding: 1.3rem 1.4rem;
   border-radius: 16px;
   background: rgba(255,255,255,.06);
   border: 1.5px solid rgba(255,255,255,.14);
   text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
   transition: transform .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
 }
+.project-mini-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -60%; width: 40%; height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,.18), transparent);
+  transform: skewX(-18deg);
+  transition: left .65s var(--ease);
+  pointer-events: none;
+}
+.project-mini-card:hover::before, .project-mini-card:focus-visible::before { left: 130%; }
 .project-mini-card:hover, .project-mini-card:focus-visible {
   transform: translateY(-4px);
   background: rgba(255,255,255,.1);

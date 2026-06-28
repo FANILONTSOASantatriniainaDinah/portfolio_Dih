@@ -1,0 +1,411 @@
+/* ============================================================
+   FORMATION — frise verticale du parcours académique (du plus
+   récent au lycée) + section hobbies/engagement. Réutilise le
+   dégradé de page et les .glass-card déjà définis dans project.css,
+   chargé avant ce fichier.
+   ============================================================ */
+
+.formation-hero {
+  position: relative;
+  padding-block: 2.5rem 1.5rem;
+  text-align: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.formation-hero__title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  color: var(--noir);
+}
+
+.formation-hero__lead {
+  position: relative;
+  z-index: 1;
+  max-width: 56ch;
+  margin: .9rem auto 0;
+  color: var(--ink-dim);
+  font-size: 1rem;
+}
+
+/* ---------- Décor flottant du hero ---------- */
+.formation-hero__deco { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+.formation-hero__shape {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,104,48,.22), transparent 70%);
+  filter: blur(2px);
+  animation: formationFloat 9s var(--ease) infinite;
+}
+.formation-hero__shape--1 { width: 90px; height: 90px; left: 8%; top: 10%; animation-delay: 0s; }
+.formation-hero__shape--2 {
+  width: 60px; height: 60px; right: 12%; top: 6%;
+  background: radial-gradient(circle, rgba(128,144,118,.28), transparent 70%);
+  animation-delay: 1.4s;
+}
+.formation-hero__shape--3 {
+  width: 46px; height: 46px; right: 22%; bottom: 4%;
+  background: radial-gradient(circle, rgba(40,65,57,.18), transparent 70%);
+  animation-delay: 2.8s;
+}
+
+.formation-hero__spark {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  fill: var(--earth);
+  opacity: .55;
+  animation: formationSpin 7s linear infinite, formationFloat 6s var(--ease) infinite;
+}
+.formation-hero__spark--1 { left: 18%; bottom: 18%; animation-delay: .5s; }
+.formation-hero__spark--2 {
+  right: 10%; bottom: 28%; width: 16px; height: 16px;
+  fill: var(--wasabi);
+  animation-delay: 2s;
+}
+
+@keyframes formationFloat {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-14px) translateX(6px); }
+}
+@keyframes formationSpin {
+  from { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.25); }
+  to { transform: rotate(360deg) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .formation-hero__shape, .formation-hero__spark { animation: none; }
+}
+
+/* ============================================================
+   FRISE
+   ============================================================ */
+.formation-timeline {
+  position: relative;
+  padding-block: 1.5rem 5rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+.formation-timeline::before,
+.formation-timeline::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: formationFloat 10s var(--ease) infinite;
+}
+.formation-timeline::before {
+  top: 4%; right: 8%;
+  width: 130px; height: 130px;
+  background: radial-gradient(circle, rgba(184,104,48,.14), transparent 70%);
+}
+.formation-timeline::after {
+  bottom: 10%; left: 4%;
+  width: 100px; height: 100px;
+  background: radial-gradient(circle, rgba(242,228,184,.1), transparent 70%);
+  animation-delay: 2s;
+}
+.formation-timeline .container { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .formation-timeline::before, .formation-timeline::after { animation: none; }
+}
+
+.formation-list {
+  position: relative;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  max-width: 720px;
+  margin-inline: auto;
+  padding-left: 2.4rem;
+}
+
+/* Ligne de fond, fixe */
+.formation-list::before {
+  content: "";
+  position: absolute;
+  left: .4rem;
+  top: .45rem;
+  bottom: .45rem;
+  width: 2px;
+  background: rgba(128,144,118,.3);
+}
+
+/* Élément spécial (premier <li>, sans contenu visible) qui porte la
+   ligne de progression animée par assets/js/formation.js : sa
+   hauteur (--progress, en %) suit le scroll dans la frise pour un
+   effet "chemin qui se trace" pendant la lecture. */
+.formation-list__progress {
+  position: absolute;
+  left: .4rem;
+  top: .45rem;
+  bottom: .45rem;
+  width: 2px;
+}
+.formation-list__progress span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--progress, 0%);
+  background: linear-gradient(180deg, var(--earth), var(--wasabi));
+  box-shadow: 0 0 10px rgba(184,104,48,.6);
+  transition: height .15s linear;
+}
+
+.formation-item {
+  position: relative;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.formation-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.formation-item::before {
+  content: "";
+  position: absolute;
+  left: -2.05rem;
+  top: .35rem;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--wasabi);
+  box-shadow: 0 0 0 4px rgba(128,144,118,.25);
+  transition: box-shadow .4s var(--ease), transform .4s var(--ease);
+}
+.formation-item.is-visible::before { transform: scale(1.15); }
+
+.formation-item--current::before {
+  background: var(--earth);
+  box-shadow: 0 0 0 4px rgba(184,104,48,.3);
+  animation: formationPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes formationPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(184,104,48,.3); }
+  50% { box-shadow: 0 0 0 9px rgba(184,104,48,.16); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .formation-item--current::before { animation: none; }
+  .formation-item { opacity: 1; transform: none; transition: none; }
+}
+
+.formation-item__period {
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--earth-deep);
+  margin-bottom: .5rem;
+}
+
+.formation-item__card {
+  padding: 1.4rem 1.6rem;
+  border-radius: 18px;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.formation-item__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 44px -20px rgba(40,30,15,.35);
+}
+
+.formation-item__degree {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--noir);
+  margin-bottom: .35rem;
+}
+
+.formation-item__school {
+  font-size: .92rem;
+  color: var(--ink-dim);
+}
+
+.formation-item__detail {
+  font-size: .85rem;
+  font-style: italic;
+  color: var(--ink-faint);
+  margin-top: .35rem;
+}
+
+.formation-item__badge {
+  display: inline-block;
+  margin-top: .6rem;
+  padding: .25rem .7rem;
+  border-radius: 999px;
+  background: rgba(184,104,48,.18);
+  color: var(--earth-deep);
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 560px) {
+  .formation-list { padding-left: 1.7rem; max-width: 100%; }
+  .formation-item::before { left: -1.35rem; }
+  .formation-list__progress { left: -.25rem; }
+}
+
+/* ============================================================
+   HOBBIES & ENGAGEMENT
+   ============================================================ */
+.formation-hobbies {
+  position: relative;
+  padding-block: 1rem 6rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+.formation-hobbies::before,
+.formation-hobbies::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: formationFloat 9s var(--ease) infinite;
+}
+.formation-hobbies::before {
+  top: 6%; left: 10%;
+  width: 150px; height: 150px;
+  background: radial-gradient(circle, rgba(128,144,118,.18), transparent 70%);
+}
+.formation-hobbies::after {
+  bottom: 8%; right: 8%;
+  width: 110px; height: 110px;
+  background: radial-gradient(circle, rgba(184,104,48,.16), transparent 70%);
+  animation-delay: 2.4s;
+}
+.formation-hobbies .container { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .formation-hobbies::before, .formation-hobbies::after { animation: none; }
+}
+
+.formation-hobbies__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3.5vw, 2.2rem);
+  color: var(--khaki);
+  text-align: center;
+}
+
+.formation-hobbies__lead {
+  text-align: center;
+  color: rgba(242,232,214,.65);
+  margin-top: .5rem;
+  margin-bottom: 2.4rem;
+}
+
+.formation-hobbies__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+.hobby-card {
+  text-align: center;
+  padding: 1.6rem 1.2rem;
+  border-radius: 18px;
+  background: var(--night-glass);
+  border: 1px solid var(--night-border);
+  opacity: 0;
+  transform: translateY(20px) scale(.96);
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
+}
+.hobby-card.is-visible { opacity: 1; transform: translateY(0) scale(1); }
+
+.hobby-card__icon {
+  width: 56px;
+  height: 56px;
+  margin-inline: auto;
+  margin-bottom: .8rem;
+  transition: transform .4s var(--ease);
+}
+.hobby-card:hover .hobby-card__icon { transform: scale(1.12) rotate(-4deg); }
+
+.hobby-card__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--khaki);
+  margin-bottom: .35rem;
+}
+
+.hobby-card__detail {
+  font-size: .85rem;
+  color: rgba(242,232,214,.62);
+}
+
+.engagement-card {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  max-width: 880px;
+  margin: 2rem auto 0;
+  padding: 1.6rem 1.8rem;
+  border-radius: 20px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
+}
+.engagement-card.is-visible { opacity: 1; transform: translateY(0); }
+
+.engagement-card__icon {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.engagement-card__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--noir);
+  margin-bottom: .35rem;
+}
+
+.engagement-card__detail {
+  font-size: .92rem;
+  color: var(--ink-dim);
+  line-height: 1.55;
+}
+
+.engagement-card__badge {
+  position: absolute;
+  top: -10px;
+  right: 1.4rem;
+  padding: .3rem .8rem;
+  border-radius: 999px;
+  background: var(--earth);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 18px -6px rgba(184,104,48,.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hobby-card, .engagement-card { opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 760px) {
+  .formation-hobbies__grid { grid-template-columns: 1fr; max-width: 380px; }
+  .engagement-card { flex-direction: column; text-align: center; }
+  .engagement-card__badge { position: static; display: inline-block; margin-bottom: .6rem; }
+}

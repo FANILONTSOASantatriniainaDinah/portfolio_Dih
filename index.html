@@ -30,13 +30,18 @@
 <header class="site-header">
   <div class="site-header__bar">
     <a href="#main-content" class="logo">Dinah<span class="logo__dot">.</span></a>
-    <nav class="site-header__nav" aria-label="Navigation principale">
-      <a href="#parcours" data-i18n="nav.parcours">Parcours</a>
-      <a href="#competences" data-i18n="nav.competences">Compétences</a>
-      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    <div class="site-header__right">
+      <nav class="site-header__nav" id="siteNav" aria-label="Navigation principale">
+        <a href="#parcours" data-i18n="nav.parcours">Parcours</a>
+        <a href="#competences" data-i18n="nav.competences">Compétences</a>
+        <a href="formation.html" data-i18n="nav.formation">Formation</a>
+      </nav>
       <a href="assets/cv-dinah-fanilontsoa.pdf" class="cv-link" download data-i18n="nav.cv">CV ↓</a>
       <button id="langToggle" class="lang-toggle" aria-label="Changer la langue">FR / EN</button>
-    </nav>
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="siteNav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -86,7 +91,7 @@
             <span data-i18n="hero.cta1">Explorer mon parcours</span>
             <span class="btn__icon" aria-hidden="true">→</span>
           </a>
-          <a href="#contact" class="btn btn--ghost" data-i18n="hero.cta2">Me contacter</a>
+          <a href="#footer-contact" class="btn btn--ghost" data-i18n="hero.cta2">Me contacter</a>
         </div>
       </div>
     </div>
@@ -115,7 +120,6 @@
     <img class="journey__globe" src="assets/images/globe-bg.svg" alt="" aria-hidden="true">
 
     <div class="journey__intro container">
-      <p class="eyebrow eyebrow--night" data-i18n="journey.eyebrow">Le chemin parcouru</p>
       <h2 class="journey__title" data-i18n="journey.title">Quatre territoires, une trajectoire</h2>
       <p class="journey__lead" data-i18n="journey.lead">
         De Madagascar à la Corée du Sud, en passant par La Réunion et la France :
@@ -216,9 +220,15 @@
        cliquer), animée au scroll (voir assets/css/skills.css)
        ============================================================ -->
   <section id="competences" class="skills" aria-label="Outils et technologies maîtrisés">
+    <div class="skills__deco" aria-hidden="true">
+      <span class="skills__shape skills__shape--1"></span>
+      <span class="skills__shape skills__shape--2"></span>
+      <span class="skills__shape skills__shape--3"></span>
+      <svg class="skills__spark skills__spark--1" viewBox="0 0 24 24"><path d="M12 2 L13.5 9.5 L21 11 L13.5 12.5 L12 20 L10.5 12.5 L3 11 L10.5 9.5 Z"/></svg>
+      <svg class="skills__spark skills__spark--2" viewBox="0 0 24 24"><path d="M12 2 L13.5 9.5 L21 11 L13.5 12.5 L12 20 L10.5 12.5 L3 11 L10.5 9.5 Z"/></svg>
+    </div>
     <div class="container">
       <div class="skills__intro">
-        <p class="eyebrow eyebrow--night" data-i18n="skills.eyebrow">La boîte à outils</p>
         <h2 class="skills__title" data-i18n="skills.title">Outils &amp; technologies</h2>
         <p class="skills__lead" data-i18n="skills.lead">
           Classés par métier, avec mon niveau de maîtrise pour chacun.
@@ -351,7 +361,7 @@
               </div>
             </div>
             <div class="skill-item">
-              <img class="skill-item__icon" src="assets/images/tools/r-lang.svg" alt="">
+              <img class="skill-item__icon" src="assets/images/tools/r.svg" alt="">
               <div class="skill-item__info">
                 <div class="skill-item__top">
                   <span class="skill-item__name">R / RShiny</span>
@@ -458,7 +468,7 @@
           <li><a href="#competences" data-i18n="nav.competences">Compétences</a></li>
         </ul>
       </div>
-      <div class="site-footer__col">
+      <div class="site-footer__col" id="footer-contact">
         <h3 data-i18n="footer.contact">Contact</h3>
         <ul>
           <li><a href="mailto:fanilontsoadinah@gmail.com">fanilontsoadinah@gmail.com</a></li>
@@ -487,6 +497,7 @@
 
 <script src="assets/js/i18n-dict.js" defer></script>
 <script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/header.js" defer></script>
 <script src="assets/js/landing.js" defer></script>
 <script src="assets/js/lightbox.js" defer></script>
 <script src="assets/js/journey.js" defer></script>

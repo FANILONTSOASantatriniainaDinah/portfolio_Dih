@@ -106,7 +106,7 @@
       { slug: "capa-taro-chim", title: "Capa, Taro &amp; Chim, les inédits de la guerre d&rsquo;Espagne", category: "academique" }
     ],
     coree: [
-      { slug: "jeux-coreens", title: "Documentaire interactif sur les jeux coréens", category: "academique" }
+      { slug: "jeux-coreens", title: "Quand la Corée Joue, documentaire interactif", category: "academique" }
     ]
   };
 
@@ -195,8 +195,12 @@
     // Il reste utile même quand 4 satellites sont déjà affichés, car
     // d'autres projets du même territoire peuvent ne pas être tirés.
     if (allProjects.length > 1) {
+      // Renvoie vers la page d'un projet de ce territoire, avec la
+      // grille "Tous les projets" déjà filtrée sur ce pays et l'ancre
+      // posée directement sur cette section (gérée par project.js via
+      // le paramètre "country").
       const more = document.createElement("a");
-      more.href = "#experiences";
+      more.href = `projet.html?slug=${allProjects[0].slug}&country=${country}#allProjectsSection`;
       more.className = "territory-more";
       // Toujours centré, sous la bulle du territoire.
       more.style.setProperty("--more-x", "0px");

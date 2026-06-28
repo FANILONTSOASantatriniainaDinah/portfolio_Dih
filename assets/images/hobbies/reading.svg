@@ -1,0 +1,8 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lecture">
+  <circle cx="32" cy="32" r="30" fill="#dde3d2"/>
+  <g fill="none" stroke="#3c4f37" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 22 c-4 -3 -10 -4 -15 -3 v22 c5 -1 11 0 15 3" fill="#809076" stroke="none" opacity=".9"/>
+    <path d="M32 22 c4 -3 10 -4 15 -3 v22 c-5 -1 -11 0 -15 3" fill="#284139" stroke="none" opacity=".85"/>
+    <path d="M32 22 v22"/>
+  </g>
+</svg>

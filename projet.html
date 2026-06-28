@@ -32,13 +32,18 @@
 <header class="site-header">
   <div class="site-header__bar">
     <a href="index.html" class="logo">Dinah<span class="logo__dot">.</span></a>
-    <nav class="site-header__nav" aria-label="Navigation principale">
-      <a href="index.html#parcours" data-i18n="nav.parcours">Parcours</a>
-      <a href="index.html#competences" data-i18n="nav.competences">Compétences</a>
-      <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+    <div class="site-header__right">
+      <nav class="site-header__nav" id="siteNav" aria-label="Navigation principale">
+        <a href="index.html#parcours" data-i18n="nav.parcours">Parcours</a>
+        <a href="index.html#competences" data-i18n="nav.competences">Compétences</a>
+        <a href="formation.html" data-i18n="nav.formation">Formation</a>
+      </nav>
       <a href="assets/cv-dinah-fanilontsoa.pdf" class="cv-link" download data-i18n="nav.cv">CV ↓</a>
       <button id="langToggle" class="lang-toggle" aria-label="Changer la langue">FR / EN</button>
-    </nav>
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="siteNav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -55,6 +60,8 @@
     <div class="project-hero__glow" aria-hidden="true"></div>
     <div class="project-hero__deco" aria-hidden="true">
       <span></span><span></span><span></span><span></span>
+      <svg class="project-hero__spark project-hero__spark--1" viewBox="0 0 24 24"><path d="M12 2 L13.5 9.5 L21 11 L13.5 12.5 L12 20 L10.5 12.5 L3 11 L10.5 9.5 Z"/></svg>
+      <svg class="project-hero__spark project-hero__spark--2" viewBox="0 0 24 24"><path d="M12 2 L13.5 9.5 L21 11 L13.5 12.5 L12 20 L10.5 12.5 L3 11 L10.5 9.5 Z"/></svg>
     </div>
     <div class="container">
       <div>
@@ -215,9 +222,13 @@
        liste reste toujours à jour automatiquement.
        ============================================================ -->
   <section id="allProjectsSection" class="all-projects" aria-label="Tous les projets">
+    <div class="all-projects__deco" aria-hidden="true">
+      <span class="all-projects__shape all-projects__shape--1"></span>
+      <span class="all-projects__shape all-projects__shape--2"></span>
+      <svg class="all-projects__spark" viewBox="0 0 24 24"><path d="M12 2 L13.5 9.5 L21 11 L13.5 12.5 L12 20 L10.5 12.5 L3 11 L10.5 9.5 Z"/></svg>
+    </div>
     <div class="container">
       <div class="all-projects__intro">
-        <p class="eyebrow">Tous les projets</p>
         <h2 class="all-projects__title" data-i18n="allprojects.title">Explorer le reste du parcours</h2>
       </div>
 
@@ -279,7 +290,7 @@
           <li><a href="#competences" data-i18n="nav.competences">Compétences</a></li>
         </ul>
       </div>
-      <div class="site-footer__col">
+      <div class="site-footer__col" id="footer-contact">
         <h3 data-i18n="footer.contact">Contact</h3>
         <ul>
           <li><a href="mailto:fanilontsoadinah@gmail.com">fanilontsoadinah@gmail.com</a></li>
@@ -298,6 +309,7 @@
 <!-- Données des projets, puis script qui les affiche selon ?slug= -->
 <script src="assets/js/i18n-dict.js" defer></script>
 <script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/header.js" defer></script>
 <script src="assets/js/project-data.js" defer></script>
 <script src="assets/js/pa-widget.js" defer></script>
 <script src="assets/js/project.js" defer></script>
