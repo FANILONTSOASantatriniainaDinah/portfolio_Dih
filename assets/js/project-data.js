@@ -326,6 +326,7 @@ const PROJECT_DATA = {
       "interim results with project managers via Felt, and statistical summaries in Excel.",
     tools: ["qgis"],
     hasVideo: false,
+    image: "assets/images/projects/atopia-diagnostic-illustration.svg",
     links: [{ href: "https://atopiaconseil.com/", labelKey: "project.visitsite" }]
   },
 
