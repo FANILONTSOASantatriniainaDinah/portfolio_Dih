@@ -61,6 +61,7 @@ const PORTFOLIO_I18N_DICT = {
     "project.openatlassite": "Voir le site d'OpenAtlas",
     "project.viewall": "Voir tous les projets",
     "project.scrollcue": "Tous les projets sont juste en bas",
+    "project.video.badge": "Vidéo",
 
     "pa.kicker": "À essayer",
     "pa.title": "Et si vous deviez décider où creuser ?",
@@ -116,7 +117,27 @@ const PORTFOLIO_I18N_DICT = {
     "formation.hobbies.reading.detail": "J&rsquo;aime lire, dès que j&rsquo;ai un moment.",
     "formation.engagement.title": "Déléguée de classe",
     "formation.engagement.detail": "De la 2<sup>e</sup> année de licence à l&rsquo;EMIT jusqu&rsquo;au Master 2, j&rsquo;ai toujours été déléguée de ma classe&nbsp;: un engagement constant tout au long de mon parcours.",
-    "formation.engagement.badge": "Depuis 2021"
+    "formation.engagement.badge": "Depuis 2021",
+
+    "formation.wordcloud.title": "Notions &amp; compétences acquises",
+    "formation.wordcloud.lead": "Glanées au fil de mes projets, dans la section &laquo;&nbsp;Projets réalisés&nbsp;&raquo; de mon CV. Cliquez sur un mot pour voir le projet associé.",
+    "formation.wordcloud.kicker": "Tel qu&rsquo;écrit dans mon CV",
+    "formation.cv1.word": "Python &amp; appariement de données",
+    "formation.cv2.word": "Cartographie historique",
+    "formation.cv3.word": "Classification RADAR/optique",
+    "formation.cv4.word": "Inégalités d&rsquo;accès aux soins",
+    "formation.cv5.word": "Sentinel-1 &amp; Sentinel-2",
+    "formation.cv6.word": "Vulnérabilité climatique",
+    "formation.cv7.word": "Recul du trait de côte",
+    "formation.cv8.word": "Indice de sécheresse",
+    "formation.cv9.word": "Analyse spatio-temporelle",
+    "formation.cv10.word": "Santé publique (R)",
+    "formation.cv11.word": "Zones reboisables",
+    "formation.cv12.word": "Infrastructure de données (IDG)",
+    "formation.cv13.word": "Contribution OpenStreetMap",
+    "formation.cv14.word": "Géolocalisation (React)",
+    "formation.cv15.word": "Gestion hospitalière",
+    "formation.cv16.word": "QGIS collaboratif"
   },
 
   en: {
@@ -177,6 +198,7 @@ const PORTFOLIO_I18N_DICT = {
     "project.openatlassite": "View OpenAtlas' website",
     "project.viewall": "View all projects",
     "project.scrollcue": "All the projects are just below",
+    "project.video.badge": "Video",
 
     "pa.kicker": "Try it",
     "pa.title": "What if you had to decide where to dig?",
@@ -232,6 +254,26 @@ const PORTFOLIO_I18N_DICT = {
     "formation.hobbies.reading.detail": "I love reading whenever I get a moment.",
     "formation.engagement.title": "Class representative",
     "formation.engagement.detail": "From my 2<sup>nd</sup> year of bachelor's at EMIT all the way to my Master 2, I was always elected class representative&nbsp;: a constant commitment throughout my studies.",
-    "formation.engagement.badge": "Since 2021"
+    "formation.engagement.badge": "Since 2021",
+
+    "formation.wordcloud.title": "Notions &amp; skills acquired",
+    "formation.wordcloud.lead": "Gathered along the way, from the &laquo;&nbsp;Projects&nbsp;&raquo; section of my CV. Click on a word to see the related project.",
+    "formation.wordcloud.kicker": "As written in my CV",
+    "formation.cv1.word": "Python &amp; data matching",
+    "formation.cv2.word": "Historical mapping",
+    "formation.cv3.word": "RADAR/optical classification",
+    "formation.cv4.word": "Healthcare access inequalities",
+    "formation.cv5.word": "Sentinel-1 &amp; Sentinel-2",
+    "formation.cv6.word": "Climate vulnerability",
+    "formation.cv7.word": "Coastline retreat",
+    "formation.cv8.word": "Drought index",
+    "formation.cv9.word": "Spatio-temporal analysis",
+    "formation.cv10.word": "Public health (R)",
+    "formation.cv11.word": "Reforestable areas",
+    "formation.cv12.word": "Geospatial data infrastructure",
+    "formation.cv13.word": "OpenStreetMap contribution",
+    "formation.cv14.word": "Geolocation (React)",
+    "formation.cv15.word": "Hospital management",
+    "formation.cv16.word": "Collaborative QGIS"
   }
 };

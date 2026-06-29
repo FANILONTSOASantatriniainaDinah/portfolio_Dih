@@ -55,11 +55,39 @@
     update();
   }
 
+  /**
+   * Nuage de mots "Notions & compétences acquises" : au clic sur un
+   * mot, ouvre une fenêtre affichant la phrase exacte du CV
+   * correspondante (data-cv en français, data-cv-en en anglais).
+   */
+  function initWordCloud() {
+    const cloud = document.getElementById("wordCloud");
+    const dialog = document.getElementById("cvQuoteDialog");
+    const closeBtn = document.getElementById("cvQuoteDialogClose");
+    const text = document.getElementById("cvQuoteDialogText");
+    if (!cloud || !dialog || !closeBtn || !text) return;
+
+    cloud.querySelectorAll(".word-cloud__word").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const lang = document.documentElement.getAttribute("lang") || "fr";
+        const quote = lang === "en" ? (btn.dataset.cvEn || btn.dataset.cv) : btn.dataset.cv;
+        text.textContent = quote || "";
+        dialog.showModal();
+      });
+    });
+
+    closeBtn.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+  }
+
   function init() {
     revealOnScroll(".formation-item", 0.15);
     revealOnScroll(".hobby-card", 0.2);
     revealOnScroll(".engagement-card", 0.2);
     initProgressLine();
+    initWordCloud();
   }
 
   if (document.readyState === "loading") {

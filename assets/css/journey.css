@@ -169,8 +169,45 @@
   opacity: 1;
 }
 
+/* Anneau pointillé façon boussole/radar, qui tourne lentement derrière
+   la bulle — renforce la lecture "point de navigation sur une carte"
+   sans changer la silhouette ronde. */
+.territory-stop::before {
+  content: "";
+  position: absolute;
+  inset: -11px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(255,255,255,.55);
+  z-index: 0;
+  animation: territoryRingSpin 16s linear infinite;
+  pointer-events: none;
+}
+@keyframes territoryRingSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Ombre au sol, comme un pin posé sur la carte. */
+.territory-stop::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 46%;
+  height: 14px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(10,14,13,.4), transparent 72%);
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .territory-stop::before { animation: none; }
+}
+
 .territory-stop__bubble {
   position: relative;
+  z-index: 1;
   width: clamp(110px, 14vw, 170px);
   height: clamp(110px, 14vw, 170px);
   border-radius: 50%;
@@ -178,15 +215,29 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  animation: territoryBubbleGlow 3.6s ease-in-out infinite;
   transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+}
+@keyframes territoryBubbleGlow {
+  0%, 100% {
+    box-shadow: 0 16px 36px -14px rgba(0,0,0,.5), inset 0 2px 10px rgba(255,255,255,.3),
+      0 0 0 0 rgba(184,104,48,.32);
+  }
+  50% {
+    box-shadow: 0 16px 36px -14px rgba(0,0,0,.5), inset 0 2px 10px rgba(255,255,255,.3),
+      0 0 0 9px rgba(184,104,48,0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .territory-stop__bubble { animation: none; }
 }
 
 .glass-card {
   background: rgba(255,255,255,.22);
-  border: 2px solid rgba(255,255,255,.55);
+  border: 3px solid rgba(255,255,255,.65);
   backdrop-filter: blur(8px) saturate(140%);
   -webkit-backdrop-filter: blur(8px) saturate(140%);
-  box-shadow: 0 16px 36px -14px rgba(0,0,0,.5);
+  box-shadow: 0 16px 36px -14px rgba(0,0,0,.5), inset 0 2px 10px rgba(255,255,255,.3);
 }
 
 /* reflet de lumière unique, discret, en haut-gauche */
@@ -207,9 +258,16 @@
 
 .territory-stop:hover .territory-stop__bubble,
 .territory-stop:focus-visible .territory-stop__bubble {
+  animation-play-state: paused;
   transform: scale(1.08);
   border-color: var(--earth);
-  box-shadow: 0 20px 42px -14px rgba(0,0,0,.55), 0 0 0 3px rgba(184,104,48,.3);
+  box-shadow: 0 20px 42px -14px rgba(0,0,0,.55), inset 0 2px 10px rgba(255,255,255,.3),
+    0 0 0 4px rgba(184,104,48,.35);
+}
+.territory-stop:hover::before,
+.territory-stop:focus-visible::before {
+  animation-play-state: paused;
+  border-color: rgba(184,104,48,.6);
 }
 
 .bubble-fleck {

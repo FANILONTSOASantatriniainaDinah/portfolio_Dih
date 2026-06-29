@@ -409,3 +409,120 @@
   .engagement-card { flex-direction: column; text-align: center; }
   .engagement-card__badge { position: static; display: inline-block; margin-bottom: .6rem; }
 }
+
+/* ============================================================
+   NUAGE DE MOTS — notions & compétences acquises (issues du CV)
+   ============================================================ */
+.formation-wordcloud {
+  position: relative;
+  padding-block: 1rem 6rem;
+}
+
+.formation-wordcloud__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3.5vw, 2.2rem);
+  color: var(--khaki);
+  text-align: center;
+}
+
+.formation-wordcloud__lead {
+  text-align: center;
+  max-width: 56ch;
+  margin: .6rem auto 0;
+  color: rgba(242,232,214,.65);
+}
+
+.word-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .9rem 1rem;
+  max-width: 980px;
+  margin: 2.4rem auto 0;
+}
+
+.word-cloud__word {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--khaki);
+  background: var(--night-glass);
+  border: 1px solid var(--night-border);
+  border-radius: 999px;
+  padding: .5rem 1.1rem;
+  cursor: pointer;
+  transition: transform .25s var(--ease), background .25s var(--ease),
+    border-color .25s var(--ease), color .25s var(--ease), box-shadow .25s var(--ease);
+}
+.word-cloud__word:hover, .word-cloud__word:focus-visible {
+  background: rgba(184,104,48,.24);
+  border-color: var(--earth);
+  color: #fff;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 22px -10px rgba(184,104,48,.5);
+}
+.word-cloud__word--sm { font-size: .76rem; }
+.word-cloud__word--md { font-size: .9rem; }
+.word-cloud__word--lg { font-size: 1.08rem; font-weight: 800; color: var(--earth); border-color: rgba(184,104,48,.4); }
+.word-cloud__word--lg:hover { color: #fff; }
+
+/* ---------- Fenêtre "extrait du CV" ---------- */
+.cv-quote-dialog {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: min(92vw, 560px);
+  margin: auto;
+  overflow: visible;
+}
+.cv-quote-dialog::backdrop {
+  background: rgba(13,20,18,.78);
+  backdrop-filter: blur(6px);
+}
+.cv-quote-dialog__frame {
+  position: relative;
+  border-radius: 20px;
+  padding: 2.3rem 2rem 1.9rem;
+  background: var(--glass-fill-strong);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,.5);
+}
+.cv-quote-dialog__close {
+  position: absolute;
+  top: .9rem;
+  right: .9rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(19,28,26,.55);
+  color: #fff;
+  font-size: .9rem;
+  transition: background .2s, transform .2s;
+}
+.cv-quote-dialog__close:hover, .cv-quote-dialog__close:focus-visible {
+  background: var(--earth);
+  transform: rotate(90deg);
+}
+.cv-quote-dialog__kicker {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--earth-deep);
+  margin-bottom: .8rem;
+}
+.cv-quote-dialog__text {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--noir);
+  font-style: italic;
+}
+.cv-quote-dialog__text::before, .cv-quote-dialog__text::after { content: '"'; }

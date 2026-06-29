@@ -20,30 +20,45 @@ const PROJECT_DATA = {
     order: 8,
     country: "madagascar",
     countryLabel: "Madagascar",
-    category: "academique",
+    category: "professionnel",
     title: "MADATLAS, pratiques genrées",
     titleEn: "MADATLAS, gendered practices",
-    subtitle: "Chantier École de cartographie collaborative",
-    subtitleEn: "Field-school collaborative mapping project",
+    subtitle: "Cartographie des sanitaires du campus, chantier École à Fianarantsoa",
+    subtitleEn: "Mapping campus sanitation facilities, field-school in Fianarantsoa",
     period: "2023 - 2024",
     description:
-      "MADATLAS est un projet de cartographie participative mené dans le cadre " +
-      "d'un chantier école. L'objectif : recenser et représenter les pratiques " +
-      "genrées de l'espace public à Fianarantsoa, à partir d'enquêtes de terrain " +
-      "et de relevés géolocalisés.",
+      "MADATLAS est un projet de cartographie participative mené dans le cadre d'un chantier " +
+      "école, à l'université de Fianarantsoa. Mon rôle principal a consisté à cartographier " +
+      "les toilettes du campus : leur localisation, leur état, le genre des usagers et le type " +
+      "d'installation. Nous avons mené une enquête de terrain auprès des étudiants avec " +
+      "KoboCollect et KoboToolbox, avant de nettoyer les données récoltées et d'en tirer les " +
+      "analyses cartographiques. La carte présentée ici est ma toute première réalisation " +
+      "cartographique : une proposition d'implantation de toilettes publiques et de " +
+      "réhabilitation des sanitaires existants. J'ai eu l'honneur d'assister à la restitution " +
+      "finale du projet MADATLAS en France, les 19 et 20 mars 2026.",
     descriptionEn:
-      "MADATLAS is a participatory mapping project carried out as part of a " +
-      "field school. The goal: identify and map gendered uses of public space " +
-      "in Fianarantsoa, based on field surveys and geolocated data collection.",
+      "MADATLAS is a participatory mapping project carried out as part of a field school at " +
+      "the University of Fianarantsoa. My main role was to map the campus' sanitation " +
+      "facilities: their location, condition, the gender of their users and the type of " +
+      "facility. We carried out a field survey among students using KoboCollect and " +
+      "KoboToolbox, then cleaned the collected data and built the mapping analysis from it. " +
+      "The map shown here is my very first cartographic work: a proposal for new public " +
+      "toilets and the rehabilitation of existing facilities. I had the honor of attending " +
+      "the MADATLAS project's final presentation in France, on March 19-20, 2026.",
     role:
-      "J'ai participé à la collecte des données sur le terrain, à leur " +
-      "structuration dans une base SIG, puis à la réalisation des cartes " +
-      "finales restituant les résultats de l'étude.",
+      "Cartographie des toilettes du campus (localisation, état, genre des usagers, type " +
+      "d'installation), conception et conduite de l'enquête de terrain avec KoboCollect et " +
+      "KoboToolbox, nettoyage des données collectées, puis réalisation des cartes finales " +
+      "restituant les résultats de l'étude.",
     roleEn:
-      "I took part in the field data collection, structured it into a GIS " +
-      "database, and produced the final maps presenting the study's results.",
-    tools: ["qgis", "osm"],
-    hasVideo: false  // Pas de vidéo pour ce projet (seul "jeux-coreens" et "dora-atopia" en ont une)
+      "Mapping the campus' sanitation facilities (location, condition, gender of users, type " +
+      "of facility), designing and running the field survey with KoboCollect and KoboToolbox, " +
+      "cleaning the collected data, and producing the final maps presenting the study's " +
+      "results.",
+    tools: ["qgis"],
+    hasVideo: false,
+    image: "assets/images/projects/Toilette_publique.png",
+    links: [{ href: "https://www.madatlas.mg/", labelKey: "project.visitsite" }]
   },
 
   "ranosoa": {
@@ -53,25 +68,43 @@ const PROJECT_DATA = {
     category: "professionnel",
     title: "Projet RANOSOA (pompe solaire)",
     titleEn: "RANOSOA project (solar pump)",
-    subtitle: "Accompagnement technique avec des stagiaires de Sherbrooke (Canada)",
-    subtitleEn: "Technical support with interns from Sherbrooke (Canada)",
+    subtitle: "Accompagnatrice d'une stagiaire de fin d'études de Sherbrooke (Canada)",
+    subtitleEn: "Mentor for an end-of-studies intern from Sherbrooke (Canada)",
     period: "Août - Novembre 2023",
     description:
-      "Mise en place d'une pompe à eau solaire (E-tiala) en collaboration avec " +
-      "une équipe de stagiaires venus du Québec. Le projet visait à fournir un " +
-      "accès à l'eau potable autonome en énergie pour une communauté rurale.",
+      "RANOSOA est un projet de mise en place d'une pompe à eau solaire (forage et panneaux " +
+      "photovoltaïques) pour une communauté rurale malgache. J'ai accompagné Sandrine, " +
+      "étudiante stagiaire de fin d'études venue de Sherbrooke (Canada), tout au long du " +
+      "chantier : du début du forage jusqu'à l'inauguration de la pompe. Un échange riche et " +
+      "pluridisciplinaire, où mon regard de géomaticienne a croisé le génie civil et " +
+      "l'électronique des stagiaires canadiens.",
     descriptionEn:
-      "Installation of a solar-powered water pump (E-tiala) in collaboration " +
-      "with a team of interns from Quebec. The project aimed to provide an " +
-      "energy-autonomous source of drinking water for a rural community.",
+      "RANOSOA is a project to install a solar-powered water pump (borehole and " +
+      "photovoltaic panels) for a rural Malagasy community. I mentored Sandrine, an " +
+      "end-of-studies intern from Sherbrooke (Canada), throughout the entire build: from the " +
+      "start of the borehole drilling to the pump's inauguration. A rich, multidisciplinary " +
+      "exchange, where my geomatics background met the Canadian interns' civil engineering " +
+      "and electronics expertise.",
     role:
-      "Accompagnatrice du projet : coordination logistique sur place, appui à " +
-      "la communication entre les équipes locales et les stagiaires canadiens.",
+      "Présente 3 jours par semaine sur le chantier, j'observais l'avancement avec Sandrine et " +
+      "rédigeais mes retours pour appuyer son mémoire de fin d'études. Cet accompagnement m'a " +
+      "fait découvrir le vocabulaire du génie civil, de la construction et de l'électronique, " +
+      "au sein d'une équipe pluridisciplinaire. J'ai aussi participé à l'école d'été qui a " +
+      "suivi, consacrée à l'étude pratique des circuits électroniques et du photovoltaïque, et " +
+      "j'ai reçu deux certificats : un pour ma participation au projet, l'autre pour cette " +
+      "école d'été.",
     roleEn:
-      "Project support: on-site logistics coordination, and assistance with " +
-      "communication between the local teams and the Canadian interns.",
+      "Present on site three days a week, I followed the build's progress together with " +
+      "Sandrine and wrote up my observations to support her end-of-studies thesis. This " +
+      "mentoring introduced me to the vocabulary of civil engineering, construction and " +
+      "electronics within a multidisciplinary team. I also took part in the summer school " +
+      "that followed, focused on hands-on study of electronic circuits and photovoltaics, and " +
+      "received two certificates: one for my participation in the project, the other for this " +
+      "summer school.",
     tools: ["qgis"],
-    hasVideo: false  // Pas de vidéo pour ce projet (seul "jeux-coreens" et "dora-atopia" en ont une)
+    hasVideo: false,
+    image: "assets/images/projects/Ranosoa.jpg",
+    links: [{ href: "https://fianaralab.fr/ranosoa.html", labelKey: "project.visitsite" }]
   },
 
   "app-restaurants-parcs": {
@@ -81,25 +114,31 @@ const PROJECT_DATA = {
     category: "academique",
     title: "Application restaurants &amp; parcs d'attractions",
     titleEn: "Restaurants &amp; amusement parks app",
-    subtitle: "Projet académique : React &amp; OpenStreetMap",
-    subtitleEn: "Academic project: React &amp; OpenStreetMap",
+    subtitle: "Premier projet React, en autonomie",
+    subtitleEn: "First React project, self-directed",
     period: "2022 - 2023",
     description:
-      "Application web permettant de localiser des restaurants et des parcs " +
-      "d'attractions à partir des données ouvertes d'OpenStreetMap. Carte " +
-      "interactive, fiches détaillées par lieu, filtres de recherche.",
+      "Mon tout premier projet en React, réalisé en autonomie dans le cadre d'un module de " +
+      "webmapping. L'application permet de localiser des restaurants et des parcs " +
+      "d'attractions dans une ville, en s'appuyant sur l'API Google pour récupérer images, " +
+      "coordonnées, avis et notes de chaque lieu.",
     descriptionEn:
-      "Web application for locating restaurants and amusement parks using " +
-      "open data from OpenStreetMap. Interactive map, detailed listing pages, " +
-      "and search filters.",
+      "My very first React project, built independently as part of a webmapping module. The " +
+      "application locates restaurants and amusement parks in a city, relying on the Google " +
+      "API to fetch each place's images, coordinates, reviews and ratings.",
     role:
-      "Développement complet du front-end avec React, intégration de l'API " +
-      "OpenStreetMap pour l'affichage de la carte et des points d'intérêt.",
+      "Développement complet du front-end avec React, intégration de l'API Google pour " +
+      "récupérer et afficher les images, coordonnées, avis et notes de chaque lieu sur la " +
+      "carte interactive.",
     roleEn:
-      "Full front-end development with React, including integration of the " +
-      "OpenStreetMap API to display the map and points of interest.",
-    tools: ["react", "osm", "javascript"],
-    hasVideo: false  // Pas de vidéo pour ce projet (seul "jeux-coreens" et "dora-atopia" en ont une)
+      "Full front-end development with React, integrating the Google API to fetch and " +
+      "display each place's images, coordinates, reviews and ratings on the interactive map.",
+    tools: ["react", "javascript"],
+    hasVideo: false,
+    image: "assets/images/projects/app-restaurants-parcs-illustration.svg"
+    // Pas de dépôt public : le code n'a pas pu être mis sur GitHub pour ce
+    // projet. Image de couverture générée (illustration), faute de capture
+    // d'écran réelle disponible.
   },
 
   "site-itdc-mada": {
@@ -109,25 +148,72 @@ const PROJECT_DATA = {
     category: "professionnel",
     title: "Site vitrine ITDC Mada",
     titleEn: "ITDC Mada showcase website",
-    subtitle: "Stage L2, Développeuse Codeigniter",
-    subtitleEn: "Undergraduate internship, CodeIgniter developer",
+    subtitle: "Stage L2, reprise d'un site existant sous CodeIgniter 3",
+    subtitleEn: "Undergraduate internship, taking over an existing CodeIgniter 3 site",
     period: "Avril - Juillet 2020",
     description:
-      "Conception et réalisation du site vitrine de l'entreprise ITDC Mada, " +
-      "dans le cadre d'un stage de licence. Le site présente les activités de " +
-      "l'entreprise et ses services.",
+      "Le site vitrine de l'entreprise ITDC Mada existait déjà lorsqu'on m'a confié ce projet, " +
+      "lors de mon premier stage (L2) au sein de l'université. Il fonctionnait avec MySQL " +
+      "comme base de données et CodeIgniter 3 comme framework, alors que nous n'avions encore " +
+      "étudié que les bases de PHP et JavaScript en licence, sans framework.",
     descriptionEn:
-      "Design and development of the showcase website for ITDC Mada, as part " +
-      "of an undergraduate internship. The site presents the company's " +
-      "activities and services.",
+      "The ITDC Mada showcase website already existed when this project was entrusted to me " +
+      "during my first internship (2nd year of bachelor's) through the university. It ran on " +
+      "MySQL with the CodeIgniter 3 framework, while we had so far only studied plain PHP and " +
+      "JavaScript in our coursework, without any framework.",
     role:
-      "Développement du site avec le framework CodeIgniter (PHP) : structure " +
-      "des pages, formulaires de contact, mise en page responsive.",
+      "Reprise et compréhension du code existant, puis adaptation à la technologie CodeIgniter " +
+      "3 et à MySQL malgré l'absence de cours sur les frameworks à ce stade de la licence. Ma " +
+      "tâche principale a été d'optimiser la responsivité du site. Le site a depuis été repris " +
+      "et entièrement remanié par d'autres étudiants.",
     roleEn:
-      "Site development with the CodeIgniter (PHP) framework: page structure, " +
-      "contact forms, and responsive layout.",
-    tools: ["php"],
-    hasVideo: false  // Pas de vidéo pour ce projet (seul "jeux-coreens" et "dora-atopia" en ont une)
+      "Took over and made sense of the existing code, then adapted to the CodeIgniter 3 " +
+      "framework and MySQL despite not having studied any framework yet at that stage of the " +
+      "degree. My main task was optimizing the site's responsiveness. The site has since been " +
+      "taken over and fully reworked by other students.",
+    tools: ["php", "mysql"],
+    hasVideo: false,
+    image: "assets/images/projects/site-itdc-mada-illustration.svg",
+    // Image de couverture générée (illustration) : le projet d'origine n'a
+    // pas pu être relancé pour en capturer un vrai rendu.
+    links: [{ href: "https://itdcmada.mg/", labelKey: "project.visitsite" }]
+  },
+
+  "chu-fianarantsoa": {
+    order: 12,
+    country: "madagascar",
+    countryLabel: "Madagascar",
+    category: "academique",
+    title: "Application de gestion hospitalière, CHU Andrainjato",
+    titleEn: "Hospital management application, CHU Andrainjato",
+    subtitle: "Partenariat EMIT &amp; CHU, en équipe de quatre",
+    subtitleEn: "EMIT & hospital partnership, team of four",
+    period: "2023 - 2024",
+    description:
+      "Application de gestion hospitalière développée pour le CHU Andrainjato de Fianarantsoa, " +
+      "à l'occasion de la célébration des 10 ans de l'hôpital, dans le cadre d'un partenariat " +
+      "entre l'EMIT et l'établissement. Elle permet de gérer les inventaires de matériel par " +
+      "département, bloc et bureau de l'hôpital, le suivi des entrées/sorties, ainsi que la " +
+      "prise de rendez-vous en ligne, sur le principe de Doctolib.",
+    descriptionEn:
+      "Hospital management application developed for the Andrainjato University Hospital " +
+      "(CHU) in Fianarantsoa, for the hospital's 10th anniversary, as part of a partnership " +
+      "between EMIT and the institution. It manages equipment inventories by department, " +
+      "ward and office, tracks stock entries/exits, and provides online appointment booking, " +
+      "Doctolib-style.",
+    role:
+      "En équipe de quatre, je me suis concentrée sur le module de comptabilité matière " +
+      "(gestion des inventaires et des entrées/sorties de matériel), tandis que les trois " +
+      "autres membres assuraient le module de prise de rendez-vous en ligne. Développé avec " +
+      "Laravel et PostgreSQL.",
+    roleEn:
+      "Within a team of four, I focused on the materials accounting module (inventory " +
+      "management and stock entries/exits), while the three other members handled the online " +
+      "appointment booking module. Built with Laravel and PostgreSQL.",
+    tools: ["php", "sgbd"],
+    hasVideo: false,
+    image: "assets/images/projects/CHU.png"
+    // Lien vers le site du CHU à ajouter dès que l'URL exacte est connue.
   },
 
   // ---------- LA RÉUNION ----------
@@ -193,29 +279,54 @@ const PROJECT_DATA = {
     country: "france",
     countryLabel: "France",
     category: "professionnel",
-    title: "Stage M2 ATOPIA",
-    titleEn: "ATOPIA graduate internship",
-    subtitle: "Cartographie en urbanisme, architecture et paysage",
-    subtitleEn: "Mapping for urban planning, architecture and landscape",
-    period: "Avril 2025 - Aujourd'hui",
+    title: "Diagnostic territorial &amp; potentiels fonciers, stage M2 chez atopia",
+    titleEn: "Territorial diagnosis &amp; land potential, M2 internship at atopia",
+    subtitle: "Stage de fin d'études, pôle géomatique d'atopia (Paris 11e)",
+    subtitleEn: "End-of-studies internship, atopia's geomatics team (Paris 11th)",
+    period: "Avril - Septembre 2025",
     description:
-      "Stage de fin d'études au sein de l'agence ATOPIA (Paris 11e). Mission : " +
-      "optimiser un outil de traitement, d'analyse et de cartographie de " +
-      "données spatialisées, utilisé pour des projets d'urbanisme, " +
-      "d'architecture et de paysage.",
+      "Stage de fin d'études au sein du pôle géomatique d'atopia, agence-conseil en " +
+      "urbanisme, paysage et architecture (Paris 11e, fondée en 2014). Mission articulée " +
+      "autour du diagnostic territorial et de l'optimisation des traitements, analyses et " +
+      "cartographies de données spatialisées, pour des études de SCoT et de PLUi menées sur " +
+      "plusieurs territoires (SCoT Melun Val-de-Seine, CA Saint-Quentin-en-Yvelines, CC " +
+      "Caux-Austreberthe, SCoT du Pays de Thiérache). Mon travail a porté sur " +
+      "l'identification et la qualification des « dents creuses » : ces parcelles non " +
+      "bâties au sein du tissu urbain existant, dont la mobilisation répond aux objectifs de " +
+      "sobriété foncière (Zéro Artificialisation Nette) sans consommer d'espaces naturels ou " +
+      "agricoles.",
     descriptionEn:
-      "End-of-studies internship at the ATOPIA agency (Paris 11th " +
-      "arrondissement). Mission: optimize a tool for processing, analyzing " +
-      "and mapping spatial data, used for urban planning, architecture and " +
-      "landscape projects.",
+      "End-of-studies internship within atopia's geomatics team, an urban planning, " +
+      "landscape and architecture consultancy (Paris 11th arrondissement, founded in 2014). " +
+      "The mission centered on territorial diagnosis and optimizing the processing, analysis " +
+      "and mapping of spatial data, for SCoT and PLUi studies carried out across several " +
+      "territories (Melun Val-de-Seine SCoT, Saint-Quentin-en-Yvelines, Caux-Austreberthe, " +
+      "Pays de Thiérache SCoT). My work focused on identifying and qualifying \"dents " +
+      "creuses\" (vacant lots): undeveloped plots within the existing urban fabric, whose " +
+      "mobilization supports land-use restraint goals (Zero Net Land Take) without " +
+      "consuming natural or agricultural land.",
     role:
-      "Amélioration des scripts de traitement de données géospatiales et " +
-      "production de cartes pour accompagner les équipes projet.",
+      "J'ai construit une méthode mixte (CEREMA, OCS-GE, cadastre) pour délimiter l'enveloppe " +
+      "urbaine de chaque territoire, puis qualifié les dents creuses brutes (filtres " +
+      "morphologiques : compacité, surface, taux de bâti) avant de les croiser avec les " +
+      "risques naturels, zonages écologiques et prescriptions d'urbanisme pour obtenir un " +
+      "potentiel net mobilisable. J'ai élargi cette approche aux zones d'activités " +
+      "économiques (Thiérache) et aux parkings de surface (Melun Val-de-Seine, classés selon " +
+      "leur potentiel de densification, de renaturation ou de production d'énergie). " +
+      "Traitements sous QGIS, partage des résultats intermédiaires avec les chefs de projet " +
+      "via Felt, et synthèses statistiques sous Excel.",
     roleEn:
-      "Improving geospatial data processing scripts and producing maps to " +
-      "support the project teams.",
-    tools: ["qgis", "python", "git"],
-    hasVideo: false  // Pas de vidéo pour ce projet (seul "jeux-coreens" et "dora-atopia" en ont une)
+      "I built a mixed method (CEREMA, OCS-GE, land registry) to delineate the urban " +
+      "envelope of each territory, then qualified raw vacant lots (morphological filters: " +
+      "compactness, area, building ratio) before cross-referencing them with natural " +
+      "hazards, ecological zoning and planning regulations to obtain a net mobilizable " +
+      "potential. I extended this approach to economic activity zones (Thiérache) and " +
+      "surface parking lots (Melun Val-de-Seine, classified by their potential for " +
+      "densification, renaturation or energy production). Processing under QGIS, sharing " +
+      "interim results with project managers via Felt, and statistical summaries in Excel.",
+    tools: ["qgis"],
+    hasVideo: false,
+    links: [{ href: "https://atopiaconseil.com/", labelKey: "project.visitsite" }]
   },
 
   "dora-atopia": {
@@ -229,55 +340,48 @@ const PROJECT_DATA = {
     subtitleEn: "Work-study program at atopia (Paris, 11th arrondissement), 2025 - 2026",
     period: "2025 - 2026",
     description:
-      "DORA est l'outil interne de cartographie interactive d'atopia, qui appuie les études " +
-      "de densification et d'évaluation des potentiels fonciers de l'agence. Développé avec R " +
-      "Shiny et Leaflet, adossé à une base PostgreSQL/PostGIS et hébergé sur un Raspberry Pi, " +
-      "il permet de générer des cartes statistiques par commune ou par IRIS (cercles " +
-      "proportionnels pour les effectifs, aplats de couleur pour les taux), avec un mode " +
-      "comparaison calculant le taux de croissance annuel moyen entre deux dates. Il a été créé " +
-      "pour s'affranchir des limites de l'Observatoire des territoires (Géoclip) : indicateurs " +
-      "absents à l'échelle IRIS, délais de mise à jour des données INSEE, esthétique figée.",
+      "DORA est un observatoire cartographique et statistique développé pour appuyer les " +
+      "diagnostics territoriaux d'atopia. L'outil permet d'explorer des données géographiques, " +
+      "démographiques, sociales, économiques, agricoles et environnementales à différentes " +
+      "échelles, notamment communale et IRIS, afin de produire rapidement des cartes " +
+      "interactives, des synthèses territoriales et des supports d'analyse exploitables dans " +
+      "les études. Une première version avait été développée par Maggie Mateu lors de son " +
+      "stage, mais elle avait été interrompue après un crash de la base de données.",
     descriptionEn:
-      "DORA is atopia's in-house interactive mapping tool, supporting the agency's land " +
-      "densification studies and development potential assessments. Built with R Shiny and " +
-      "Leaflet, backed by a PostgreSQL/PostGIS database and hosted on a Raspberry Pi, it " +
-      "generates statistical maps by municipality or IRIS unit (proportional circles for " +
-      "headcounts, color shading for rates), with a comparison mode computing the average " +
-      "annual growth rate between two dates. It was built to overcome the limitations of the " +
-      "Observatoire des territoires (Géoclip): no IRIS-level indicators, slow INSEE data " +
-      "updates, and a fixed, non-customizable look.",
+      "DORA is a cartographic and statistical observatory built to support atopia's " +
+      "territorial diagnostics. The tool makes it possible to explore geographic, " +
+      "demographic, social, economic, agricultural and environmental data at different " +
+      "scales, in particular municipal and IRIS level, to quickly produce interactive maps, " +
+      "territorial summaries and analysis material usable directly in studies. An initial " +
+      "version had been built by Maggie Mateu during her internship, but was interrupted " +
+      "after a database crash.",
     role:
-      "À mon arrivée, l'outil était à l'arrêt après un crash de sa base de données. Ma mission " +
-      "a consisté à le relancer et à le fiabiliser, puis à l'améliorer pour mieux l'adapter aux " +
-      "usages quotidiens des chefs de projet et chargés d'études : documentation du code " +
-      "existant, remise en marche et mise à disposition de l'outil sur les postes de toute " +
-      "l'équipe (ce qui n'était pas le cas auparavant), hébergement sur un serveur Raspberry " +
-      "Pi pour une utilisation stable et continue, ajout d'une gestion de session " +
-      "(déconnexion volontaire, maintien tant que l'outil reste ouvert), remplacement de la " +
-      "saisie manuelle des codes INSEE par un identifiant unique lié au numéro de mission " +
-      "(avec mise à jour de la table de correspondance missions/communes), et début de " +
-      "l'actualisation de la base statistique avec les données du recensement 2022.",
+      "J'ai repris l'outil à partir de ce socle existant pour en assurer la remise en service, " +
+      "la refonte technique et l'évolution fonctionnelle : reconstruction de la connexion aux " +
+      "données, consolidation de l'architecture sous R Shiny, rétablissement de l'exploitation " +
+      "de la base PostgreSQL/PostGIS, refonte de l'interface utilisateur, hébergement sur un " +
+      "serveur Raspberry Pi pour une utilisation stable et continue, et développement de " +
+      "nouveaux modules (cartographie interactive, analyse temporelle, synthèse statistique, " +
+      "export). J'ai aussi ajouté une gestion de session et remplacé la saisie manuelle des " +
+      "codes INSEE par un identifiant unique lié au numéro de mission. La version actuelle " +
+      "transforme DORA en outil métier opérationnel, capable de fiabiliser la production de " +
+      "diagnostics territoriaux et d'accélérer la lecture spatiale des enjeux pour les équipes " +
+      "projet.",
     roleEn:
-      "When I joined, the tool had been offline following a database crash. My mission was " +
-      "to bring it back online and make it reliable, then improve it to better fit the daily " +
-      "use of project managers and study officers: documenting the existing code, restoring " +
-      "the tool and making it available on every team member's workstation (which wasn't the " +
-      "case before), hosting it on a Raspberry Pi server for stable, continuous use, adding " +
-      "session management (voluntary logout, session kept alive while the tool stays open), " +
-      "replacing manual INSEE code entry with a single identifier tied to the mission number " +
-      "(updating the mission/municipality correspondence table accordingly), and starting to " +
-      "update the statistical database with the 2022 census data.",
-    tools: ["r", "shiny", "sgbd", "git"],
+      "I took over the existing tool to bring it back online, rebuild it technically and " +
+      "extend its features: reconstructing the data connection, consolidating the R Shiny " +
+      "architecture, restoring the PostgreSQL/PostGIS database, redesigning the user " +
+      "interface, hosting it on a Raspberry Pi server for stable, continuous use, and " +
+      "building new modules (interactive mapping, time-series analysis, statistical " +
+      "summaries, export). I also added session management and replaced manual INSEE code " +
+      "entry with a single identifier tied to the mission number. The current version turns " +
+      "DORA into an operational business tool, able to make territorial diagnostics more " +
+      "reliable and speed up spatial analysis for project teams.",
+    tools: ["r", "shiny", "javascript", "html-css", "sgbd", "git"],
     hasVideo: false,
-    heroVideo: "",
-    heroVideoPoster: "assets/images/projects/poster.jpg",
+    heroVideo: "assets/images/DORA_SCREEN.mp4",
+    heroVideoPoster: "",
     interactive: null
-    // Vidéo de démonstration DORA, à intégrer une fois prête (demande
-    // explicite des profs) : déposer le fichier .mp4 dans
-    // assets/video/ (ex: assets/video/dora-atopia.mp4), puis renseigner
-    // heroVideo: "assets/video/dora-atopia.mp4" ci-dessus. Elle remplace
-    // l'image du hero (pas de section vidéo séparée dans le corps,
-    // contrairement à "jeux-coreens").
   },
 
   "pred-archeo": {

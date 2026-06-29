@@ -90,16 +90,17 @@
   // (projet.html?slug=...).
   const PROJECTS = {
     madagascar: [
-      { slug: "madatlas", title: "MADATLAS, pratiques genrées", category: "academique" },
+      { slug: "madatlas", title: "MADATLAS, pratiques genrées", category: "professionnel" },
       { slug: "ranosoa", title: "Projet RANOSOA (pompe solaire)", category: "professionnel" },
-      { slug: "app-restaurants-parcs", title: "App restaurants &amp; parcs (React/OSM)", category: "academique" },
-      { slug: "site-itdc-mada", title: "Site vitrine ITDC Mada", category: "professionnel" }
+      { slug: "app-restaurants-parcs", title: "App restaurants &amp; parcs (React)", category: "academique" },
+      { slug: "site-itdc-mada", title: "Site vitrine ITDC Mada", category: "professionnel" },
+      { slug: "chu-fianarantsoa", title: "Appli de gestion hospitalière, CHU Andrainjato", category: "academique" }
     ],
     reunion: [
       { slug: "openatlas", title: "OpenAtlas, interopérabilité OSM", category: "professionnel" }
     ],
     france: [
-      { slug: "atopia", title: "Stage M2 ATOPIA, cartographie urbanisme", category: "professionnel" },
+      { slug: "atopia", title: "Diagnostic territorial, stage M2 chez atopia", category: "professionnel" },
       { slug: "dora-atopia", title: "DORA, outil de cartographie interactive", category: "professionnel" },
       { slug: "pred-archeo", title: "Préd&rsquo;Archéo, prédiction archéologique", category: "academique" },
       { slug: "recul-trait-cote", title: "Bâtiments menacés par le recul du trait de côte", category: "academique" },

@@ -48,7 +48,8 @@
     git: "Git",
     osm: "OpenStreetMap",
     sgbd: "PostgreSQL",
-    mongodb: "MongoDB"
+    mongodb: "MongoDB",
+    mysql: "MySQL"
   };
 
   // Coordonnées approximatives par pays, affichées sous le titre
@@ -204,6 +205,8 @@
     const heroVisual = document.getElementById("projectHeroVisual");
     const heroVisualImg = document.getElementById("projectHeroVisualImg");
     const heroVisualVideo = document.getElementById("projectHeroVisualVideo");
+    const heroPlayIntro = document.getElementById("projectHeroPlayIntro");
+    const heroPlayBadge = document.getElementById("projectHeroPlayBadge");
     const heroExpand = document.getElementById("projectHeroExpand");
     let heroMediaType = null; // "image" | "video" | null, utilisé par le bouton agrandir
 
@@ -219,6 +222,10 @@
         heroVisualImg.hidden = true;
         heroVisual.hidden = false;
         heroMediaType = "video";
+        // Indice visuel "c'est une vidéo" : grosse icône qui pulse puis
+        // s'efface, + badge discret qui reste affiché en permanence.
+        if (heroPlayIntro) heroPlayIntro.hidden = false;
+        if (heroPlayBadge) heroPlayBadge.hidden = false;
         heroVisualVideo.load();
         const playPromise = heroVisualVideo.play();
         if (playPromise && typeof playPromise.catch === "function") {
@@ -231,10 +238,14 @@
         heroVisualVideo.hidden = true;
         heroVisual.hidden = false;
         heroMediaType = "image";
+        if (heroPlayIntro) heroPlayIntro.hidden = true;
+        if (heroPlayBadge) heroPlayBadge.hidden = true;
       } else {
         heroVisual.hidden = true;
         heroVisualImg.hidden = true;
         heroVisualVideo.hidden = true;
+        if (heroPlayIntro) heroPlayIntro.hidden = true;
+        if (heroPlayBadge) heroPlayBadge.hidden = true;
       }
     }
 

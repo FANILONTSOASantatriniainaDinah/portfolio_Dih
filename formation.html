@@ -165,7 +165,97 @@
     </div>
   </section>
 
+  <!-- ===== NUAGE DE MOTS : notions & compétences acquises =====
+       Mots tirés de la section "Projets réalisés" de mon CV (page 2).
+       Cliquer sur un mot ouvre une fenêtre affichant la phrase exacte
+       du CV correspondante (voir data-cv / data-cv-en + formation.js). -->
+  <section class="formation-wordcloud">
+    <div class="container">
+      <h2 class="formation-wordcloud__title" data-i18n="formation.wordcloud.title">Notions &amp; compétences acquises</h2>
+      <p class="formation-wordcloud__lead" data-i18n="formation.wordcloud.lead">
+        Glanées au fil de mes projets, dans la section « Projets réalisés » de mon CV. Cliquez
+        sur un mot pour voir le projet associé.
+      </p>
+
+      <div class="word-cloud" id="wordCloud">
+        <button type="button" class="word-cloud__word word-cloud__word--lg" data-i18n="formation.cv1.word"
+          data-cv="Fusion des bases BDTopo et CampToCamp à l&rsquo;aide de Python pour l&rsquo;analyse spatiale et l&rsquo;appariement de données."
+          data-cv-en="Merging the BDTopo and CampToCamp databases using Python for spatial analysis and data matching.">Python &amp; appariement de données</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--sm" data-i18n="formation.cv2.word"
+          data-cv="Apparition des îlots parisiens de 1785 à aujourd&rsquo;hui en exploitant plusieurs sources historiques comme le Plan de Verniquet, le cadastre Vasserot et les îlots APUR."
+          data-cv-en="Tracking Parisian city blocks from 1785 to today using several historical sources such as the Plan de Verniquet, the Vasserot cadastre and the APUR city blocks.">Cartographie historique</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--md" data-i18n="formation.cv3.word"
+          data-cv="Intégration des images RADAR et optiques pour classifier l&rsquo;occupation du sol en Guyane."
+          data-cv-en="Integrating RADAR and optical imagery to classify land cover in French Guiana.">Classification RADAR/optique</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--sm" data-i18n="formation.cv4.word"
+          data-cv="Étude des inégalités spatiales dans l&rsquo;accès aux soins d&rsquo;urgence en Auvergne-Rhône-Alpes."
+          data-cv-en="Study of spatial inequalities in access to emergency care in Auvergne-Rhône-Alpes.">Inégalités d&rsquo;accès aux soins</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--lg" data-i18n="formation.cv5.word"
+          data-cv="Combinaison des données Sentinel-1 et Sentinel-2 pour la prédiction de sites archéologiques."
+          data-cv-en="Combining Sentinel-1 and Sentinel-2 data to predict archaeological sites.">Sentinel-1 &amp; Sentinel-2</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--md" data-i18n="formation.cv6.word"
+          data-cv="Analyse de la vulnérabilité et de l&rsquo;exposition aux aléas climatiques avec RESALLIENCE."
+          data-cv-en="Analysis of vulnerability and exposure to climate hazards with RESALLIENCE.">Vulnérabilité climatique</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--sm" data-i18n="formation.cv7.word"
+          data-cv="Estimation du recul du trait de côte en France en utilisant PostGIS."
+          data-cv-en="Estimating coastline retreat in France using PostGIS.">Recul du trait de côte</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--md" data-i18n="formation.cv8.word"
+          data-cv="Cartographie de l&rsquo;évapotranspiration des cultures et calcul d&rsquo;un indice de sécheresse au Maroc."
+          data-cv-en="Mapping crop evapotranspiration and calculating a drought index in Morocco.">Indice de sécheresse</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--sm" data-i18n="formation.cv9.word"
+          data-cv="Traitement et analyse des données de précipitations avec SpagoBI pour une approche spatio-temporelle."
+          data-cv-en="Processing and analyzing rainfall data with SpagoBI for a spatio-temporal approach.">Analyse spatio-temporelle</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--lg" data-i18n="formation.cv10.word"
+          data-cv="Étude du dépistage du VIH chez les MSM à Madagascar (2015-2016) avec R pour une analyse en santé publique."
+          data-cv-en="Study of HIV screening among MSM in Madagascar (2015-2016) using R for a public health analysis.">Santé publique (R)</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--sm" data-i18n="formation.cv11.word"
+          data-cv="Analyse et cartographie des zones reboisables du district d&rsquo;Ambalavao depuis 1990."
+          data-cv-en="Analysis and mapping of reforestable areas in the Ambalavao district since 1990.">Zones reboisables</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--md" data-i18n="formation.cv12.word"
+          data-cv="Mise en place d&rsquo;une infrastructure de diffusion des données hydrologiques avec GeoNetwork et GeoServer."
+          data-cv-en="Setting up a hydrological data distribution infrastructure with GeoNetwork and GeoServer.">Infrastructure de données (IDG)</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--sm" data-i18n="formation.cv13.word"
+          data-cv="Contribution et actualisation des données cartographiques sur OpenStreetMap au sein du campus."
+          data-cv-en="Contributing to and updating OpenStreetMap mapping data on campus.">Contribution OpenStreetMap</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--md" data-i18n="formation.cv14.word"
+          data-cv="Développement d&rsquo;une application de géolocalisation des restaurants et parcs d&rsquo;attractions avec React et OpenStreetMap."
+          data-cv-en="Development of a geolocation app for restaurants and amusement parks with React and OpenStreetMap.">Géolocalisation (React)</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--lg" data-i18n="formation.cv15.word"
+          data-cv="Création d&rsquo;une application de gestion hospitalière pour le CHU de Fianarantsoa, incluant la comptabilité des matières et la prise de rendez-vous en ligne."
+          data-cv-en="Creation of a hospital management application for the CHU of Fianarantsoa, including materials accounting and online appointment booking.">Gestion hospitalière</button>
+
+        <button type="button" class="word-cloud__word word-cloud__word--sm" data-i18n="formation.cv16.word"
+          data-cv="Travail en équipe sur QGIS en environnement multi-utilisateurs, avec PostgreSQL/PostGIS pour un système de saisie collaborative."
+          data-cv-en="Teamwork on QGIS in a multi-user environment, with PostgreSQL/PostGIS for a collaborative data entry system.">QGIS collaboratif</button>
+      </div>
+    </div>
+  </section>
+
 </main>
+
+<!-- ===== FENÊTRE "EXTRAIT DU CV" =====
+     Ouverte au clic sur un mot du nuage (voir assets/js/formation.js). -->
+<dialog id="cvQuoteDialog" class="cv-quote-dialog" aria-label="Extrait du CV">
+  <div class="cv-quote-dialog__frame">
+    <button type="button" class="cv-quote-dialog__close" id="cvQuoteDialogClose" aria-label="Fermer">✕</button>
+    <p class="cv-quote-dialog__kicker" data-i18n="formation.wordcloud.kicker">Tel qu&rsquo;écrit dans mon CV</p>
+    <p class="cv-quote-dialog__text" id="cvQuoteDialogText"></p>
+  </div>
+</dialog>
 
 <!-- ===== PIED DE PAGE (identique aux autres pages) ===== -->
 <footer class="site-footer">

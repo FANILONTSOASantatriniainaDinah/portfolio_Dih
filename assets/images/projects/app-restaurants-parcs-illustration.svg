@@ -1,0 +1,63 @@
+<svg viewBox="0 0 800 533" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration : application de localisation de restaurants et parcs">
+  <rect width="800" height="533" fill="#f3e8c8"/>
+
+  <!-- Carte en fond -->
+  <rect x="40" y="40" width="720" height="453" rx="22" fill="#e6d8ac"/>
+  <g opacity="0.55" stroke="#cbbd8a" stroke-width="3" fill="none">
+    <path d="M40 180 H760"/>
+    <path d="M40 320 H760"/>
+    <path d="M230 40 V493"/>
+    <path d="M520 40 V493"/>
+  </g>
+  <ellipse cx="160" cy="120" rx="90" ry="55" fill="#809076" opacity="0.45"/>
+  <ellipse cx="640" cy="400" rx="120" ry="70" fill="#809076" opacity="0.4"/>
+  <ellipse cx="420" cy="430" rx="60" ry="36" fill="#809076" opacity="0.35"/>
+
+  <!-- Pin restaurant -->
+  <g transform="translate(330,210)">
+    <path d="M0 0 C-34 0 -34 -34 -34 -50 a34 34 0 1 1 68 0 C34 -34 34 0 0 0 Z" fill="#b86830"/>
+    <circle cx="0" cy="-50" r="22" fill="#fff"/>
+    <g stroke="#b86830" stroke-width="4" stroke-linecap="round">
+      <path d="M-9 -60 v20 M-9 -60 a4 4 0 0 1 4 4 v6 a4 4 0 0 1 -4 4 M-9 -60 a-4 4 0 0 0 -4 4 v6 a-4 4 0 0 0 4 4"/>
+      <path d="M9 -60 v20 M9 -64 v8 M5 -64 v8 M13 -64 v8"/>
+    </g>
+  </g>
+
+  <!-- Pin parc -->
+  <g transform="translate(560,260)">
+    <path d="M0 0 C-30 0 -30 -30 -30 -44 a30 30 0 1 1 60 0 C30 -30 30 0 0 0 Z" fill="#284139"/>
+    <circle cx="0" cy="-44" r="20" fill="#fff"/>
+    <path d="M0 -56 l10 14 h-7 l8 11 h-22 l8 -11 h-7 z" fill="#284139"/>
+  </g>
+
+  <!-- Pin parc secondaire -->
+  <g transform="translate(200,330)">
+    <path d="M0 0 C-22 0 -22 -22 -22 -32 a22 22 0 1 1 44 0 C22 -22 22 0 0 0 Z" fill="#284139"/>
+    <circle cx="0" cy="-32" r="15" fill="#fff"/>
+    <path d="M0 -41 l7 10 h-5 l6 8 h-16 l6 -8 h-5 z" fill="#284139"/>
+  </g>
+
+  <!-- Carte flottante : avis / note -->
+  <g transform="translate(470,90)">
+    <rect width="230" height="110" rx="16" fill="#fffaf0" stroke="#fff" stroke-width="2"/>
+    <circle cx="32" cy="32" r="16" fill="#b86830" opacity="0.85"/>
+    <rect x="58" y="22" width="120" height="9" rx="4" fill="#131c1a" opacity="0.75"/>
+    <rect x="58" y="38" width="80" height="7" rx="3" fill="#131c1a" opacity="0.4"/>
+    <g fill="#b86830">
+      <path d="M22 70 l4.5 9.2 10.1 1.5 -7.3 7.1 1.7 10 -9 -4.7 -9 4.7 1.7 -10 -7.3 -7.1 10.1 -1.5z"/>
+      <path d="M58 70 l4.5 9.2 10.1 1.5 -7.3 7.1 1.7 10 -9 -4.7 -9 4.7 1.7 -10 -7.3 -7.1 10.1 -1.5z"/>
+      <path d="M94 70 l4.5 9.2 10.1 1.5 -7.3 7.1 1.7 10 -9 -4.7 -9 4.7 1.7 -10 -7.3 -7.1 10.1 -1.5z"/>
+      <path d="M130 70 l4.5 9.2 10.1 1.5 -7.3 7.1 1.7 10 -9 -4.7 -9 4.7 1.7 -10 -7.3 -7.1 10.1 -1.5z"/>
+      <path d="M166 70 l4.5 9.2 10.1 1.5 -7.3 7.1 1.7 10 -9 -4.7 -9 4.7 1.7 -10 -7.3 -7.1 10.1 -1.5z" opacity="0.35"/>
+    </g>
+    <rect x="22" y="92" width="60" height="8" rx="4" fill="#131c1a" opacity="0.3"/>
+  </g>
+
+  <!-- Barre de recherche en haut -->
+  <g transform="translate(80,70)">
+    <rect width="260" height="44" rx="22" fill="#fffaf0" stroke="#fff" stroke-width="2"/>
+    <circle cx="24" cy="22" r="8" fill="none" stroke="#809076" stroke-width="3"/>
+    <path d="M30 28 l8 8" stroke="#809076" stroke-width="3" stroke-linecap="round"/>
+    <rect x="48" y="17" width="120" height="9" rx="4" fill="#131c1a" opacity="0.25"/>
+  </g>
+</svg>
