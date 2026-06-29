@@ -1,4 +1,4 @@
-# Portfolio — Dinah Fanilontsoa
+# Portfolio Dinah Fanilontsoa
 
 Portfolio personnel de **FANILONTSOA Santatriniaina Dinah**, géomaticienne cartographe & développeuse. Site statique (HTML / CSS / JS, sans framework ni dépendance), pensé comme un parcours interactif à travers mes expériences à Madagascar, à La Réunion, en France et en Corée du Sud.
 
